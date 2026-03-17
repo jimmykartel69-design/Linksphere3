@@ -26,6 +26,7 @@ import {
   Settings,
 } from 'lucide-react'
 import { SITE_NAME } from '@/lib/constants'
+import { useTranslation } from '@/i18n/provider'
 
 interface HeaderProps {
   transparent?: boolean
@@ -54,6 +55,7 @@ export function Header({
   transparent = false, 
   user: propUser 
 }: HeaderProps) {
+  const { t } = useTranslation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [user, setUser] = useState(propUser)
   const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
@@ -110,7 +112,7 @@ export function Header({
               href="/explore"
               className="text-white/70 hover:text-white transition-colors text-sm font-medium"
             >
-              Explore
+              {t('nav.explore')}
             </Link>
             <Link
               href="/pricing"
@@ -122,13 +124,13 @@ export function Header({
               href="/#categories"
               className="text-white/70 hover:text-white transition-colors text-sm font-medium"
             >
-              Categories
+              {t('nav.categories')}
             </Link>
             <Link
               href="/#about"
               className="text-white/70 hover:text-white transition-colors text-sm font-medium"
             >
-              About
+              {t('footer.about')}
             </Link>
             <Link
               href="/#faq"
@@ -183,13 +185,13 @@ export function Header({
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard" className="flex items-center gap-2">
                       <LayoutDashboard className="w-4 h-4" />
-                      Dashboard
+                      {t('nav.dashboard')}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/settings" className="flex items-center gap-2">
                       <Settings className="w-4 h-4" />
-                      Settings
+                      {t('nav.settings')}
                     </Link>
                   </DropdownMenuItem>
                   {user.role === 'ADMIN' && (
@@ -206,7 +208,7 @@ export function Header({
                     className="text-red-400 focus:text-red-400"
                   >
                     <LogOut className="w-4 h-4 mr-2" />
-                    Sign Out
+                    {t('nav.logout')}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -218,10 +220,10 @@ export function Header({
                   asChild
                   className="text-white/70 hover:text-white hover:bg-white/10"
                 >
-                  <Link href="/auth/login">Sign In</Link>
+                  <Link href="/auth/login">{t('nav.login')}</Link>
                 </Button>
                 <Button size="sm" asChild>
-                  <Link href="/auth/register">Get Started</Link>
+                  <Link href="/auth/register">{t('nav.register')}</Link>
                 </Button>
               </div>
             ) : null}
@@ -251,28 +253,28 @@ export function Header({
                 className="px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Explore
+                {t('nav.explore')}
               </Link>
               <Link
                 href="/#categories"
                 className="px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Categories
+                {t('nav.categories')}
               </Link>
               <Link
                 href="/#about"
                 className="px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                About
+                {t('footer.about')}
               </Link>
               <Link
                 href="/#faq"
                 className="px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                FAQ
+                {t('footer.faq')}
               </Link>
               {mounted && !user && (
                 <>
@@ -282,14 +284,14 @@ export function Header({
                     className="px-4 py-2 text-white hover:bg-white/10 rounded-lg"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Sign In
+                    {t('nav.login')}
                   </Link>
                   <Link
                     href="/auth/register"
                     className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-center"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Get Started
+                    {t('nav.register')}
                   </Link>
                 </>
               )}
@@ -301,14 +303,14 @@ export function Header({
                     className="px-4 py-2 text-white hover:bg-white/10 rounded-lg"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Dashboard
+                    {t('nav.dashboard')}
                   </Link>
                   <Link
                     href="/settings"
                     className="px-4 py-2 text-white hover:bg-white/10 rounded-lg"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Settings
+                    {t('nav.settings')}
                   </Link>
                   <button
                     onClick={() => {
@@ -317,7 +319,7 @@ export function Header({
                     }}
                     className="px-4 py-2 text-red-400 hover:bg-white/10 rounded-lg text-left"
                   >
-                    Sign Out
+                    {t('nav.logout')}
                   </button>
                 </>
               )}

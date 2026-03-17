@@ -6,8 +6,10 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react'
 import { Globe, Twitter, Github, Linkedin } from 'lucide-react'
 import { SITE_NAME, SITE_TAGLINE, SUPPORTED_LOCALES, LOCALE_NAMES } from '@/lib/constants'
+import { useTranslation } from '@/i18n/provider'
 
 interface FooterProps {
   locale?: string
@@ -15,7 +17,29 @@ interface FooterProps {
 }
 
 export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
+  const { locale: appLocale, setLocale, t } = useTranslation()
+  const [isUpdatingLocale, setIsUpdatingLocale] = useState(false)
   const currentYear = new Date().getFullYear()
+
+  const handleLocaleChange = async (value: string) => {
+    const nextLocale = value as typeof SUPPORTED_LOCALES[number]
+    setIsUpdatingLocale(true)
+    await setLocale(nextLocale)
+    onLocaleChange?.(value)
+
+    // Persist locale into user profile when authenticated.
+    try {
+      await fetch('/api/auth/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ locale: nextLocale }),
+      })
+    } catch {
+      // Non-blocking: locale stays applied locally.
+    } finally {
+      setIsUpdatingLocale(false)
+    }
+  }
 
   return (
     <footer className="bg-black border-t border-white/10">
@@ -30,7 +54,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
               <span className="text-xl font-bold text-white">{SITE_NAME}</span>
             </Link>
             <p className="text-white/50 text-sm mb-4">
-              {SITE_TAGLINE}
+              {t('site.tagline') || SITE_TAGLINE}
             </p>
             <div className="flex gap-4">
               <a
@@ -101,14 +125,14 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
 
           {/* Company */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Company</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.about')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="#about"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  About Us
+                  {t('footer.about')}
                 </Link>
               </li>
               <li>
@@ -116,7 +140,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#faq"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  FAQ
+                  {t('footer.faq')}
                 </Link>
               </li>
               <li>
@@ -124,7 +148,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#contact"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Contact
+                  {t('footer.contact')}
                 </Link>
               </li>
             </ul>
@@ -139,7 +163,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#terms"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Terms of Service
+                  {t('footer.terms')}
                 </Link>
               </li>
               <li>
@@ -147,7 +171,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#privacy"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Privacy Policy
+                  {t('footer.privacy')}
                 </Link>
               </li>
               <li>
@@ -165,15 +189,16 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-sm">
-            © {currentYear} {SITE_NAME}. All rights reserved.
+            © {currentYear} {SITE_NAME}. {t('footer.rights')}
           </p>
           
           {/* Language selector */}
           <div className="flex items-center gap-2">
             <Globe className="w-4 h-4 text-white/30" />
             <select
-              value={locale}
-              onChange={(e) => onLocaleChange?.(e.target.value)}
+              value={appLocale || locale}
+              onChange={(e) => handleLocaleChange(e.target.value)}
+              disabled={isUpdatingLocale}
               className="bg-transparent text-white/50 text-sm border-none outline-none cursor-pointer"
             >
               {SUPPORTED_LOCALES.map((loc) => (

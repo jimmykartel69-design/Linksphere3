@@ -4,6 +4,8 @@ import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/constants'
 import { env } from '@/lib/env'
+import { TranslationProvider } from '@/i18n/provider'
+import { LocaleSync } from '@/components/shared/LocaleSync'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -68,8 +70,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <body className={`${inter.variable} font-sans antialiased bg-black text-white min-h-screen`} suppressHydrationWarning>
-        {children}
-        <Toaster />
+        <TranslationProvider>
+          <LocaleSync />
+          {children}
+          <Toaster />
+        </TranslationProvider>
       </body>
     </html>
   )

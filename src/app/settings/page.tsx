@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Loader2, ArrowLeft, Save } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
+import { useTranslation } from '@/i18n/provider'
 
 interface SettingsUser {
   id: string
@@ -24,6 +25,7 @@ interface SettingsUser {
 export default function SettingsPage() {
   const router = useRouter()
   const { toast } = useToast()
+  const { t, setLocale: setAppLocale } = useTranslation()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [user, setUser] = useState<SettingsUser | null>(null)
@@ -80,9 +82,12 @@ export default function SettingsPage() {
       }
 
       setUser(data.user)
+      if (data.user.locale) {
+        await setAppLocale(data.user.locale)
+      }
       toast({
-        title: 'Profil mis à jour',
-        description: 'Les paramètres ont été enregistrés avec succès.',
+        title: t('toast.success'),
+        description: t('toast.saved'),
       })
     } catch {
       toast({
@@ -115,12 +120,12 @@ export default function SettingsPage() {
         <div className="max-w-3xl mx-auto px-4 py-8 space-y-6">
           <Link href="/dashboard" className="inline-flex items-center gap-2 text-white/60 hover:text-white">
             <ArrowLeft className="w-4 h-4" />
-            Retour au dashboard
+            {t('button.back')} {t('nav.dashboard')}
           </Link>
 
           <Card className="bg-white/5 border-white/10">
             <CardHeader>
-              <CardTitle className="text-white">Paramètres du compte</CardTitle>
+              <CardTitle className="text-white">{t('dashboard.settings.title')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -141,7 +146,7 @@ export default function SettingsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="locale" className="text-white">Langue</Label>
+                  <Label htmlFor="locale" className="text-white">{t('dashboard.settings.language')}</Label>
                   <select
                     id="locale"
                     value={locale}
@@ -156,7 +161,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="timezone" className="text-white">Timezone</Label>
+                  <Label htmlFor="timezone" className="text-white">{t('dashboard.settings.timezone')}</Label>
                   <Input
                     id="timezone"
                     value={timezone}
@@ -172,12 +177,12 @@ export default function SettingsPage() {
                   {saving ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Sauvegarde...
+                      {t('loading.please')}
                     </>
                   ) : (
                     <>
                       <Save className="w-4 h-4 mr-2" />
-                      Enregistrer
+                      {t('button.save')}
                     </>
                   )}
                 </Button>
