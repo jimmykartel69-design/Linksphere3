@@ -21,16 +21,43 @@ export async function PATCH(request: NextRequest) {
     const supabase = await getSupabaseServerClient()
     const { data, error } = await supabase
       .from('profiles')
-      .update({
+      .upsert({
+        id: authUser.id,
         name: parsed.data.name,
         locale: parsed.data.locale,
         timezone: parsed.data.timezone,
-      })
-      .eq('id', authUser.id)
+      }, { onConflict: 'id' })
       .select('id, name, avatar_url, role, badge, locale, timezone')
       .single()
 
     if (error) {
+      const missingProfilesTable = error.message.includes("Could not find the table 'public.profiles'")
+      if (missingProfilesTable) {
+        const { error: authUpdateError } = await supabase.auth.updateUser({
+          data: {
+            name: parsed.data.name,
+            locale: parsed.data.locale,
+            timezone: parsed.data.timezone,
+          },
+        })
+        if (authUpdateError) {
+          return NextResponse.json({ error: authUpdateError.message }, { status: 400 })
+        }
+
+        return NextResponse.json({
+          user: {
+            id: authUser.id,
+            name: parsed.data.name || authUser.user_metadata?.name || null,
+            avatarUrl: authUser.user_metadata?.avatar_url || null,
+            role: 'USER',
+            badge: 'NONE',
+            locale: parsed.data.locale || authUser.user_metadata?.locale || 'en',
+            timezone: parsed.data.timezone || authUser.user_metadata?.timezone || null,
+            email: authUser.email,
+          },
+        })
+      }
+
       return NextResponse.json({ error: error.message }, { status: 400 })
     }
 
@@ -51,4 +78,3 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to update profile' }, { status: 500 })
   }
 }
-

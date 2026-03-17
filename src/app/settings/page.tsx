@@ -148,10 +148,10 @@ export default function SettingsPage() {
                     onChange={(e) => setLocale(e.target.value)}
                     className="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white"
                   >
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="es">Español</option>
-                    <option value="de">Deutsch</option>
+                    <option value="en" style={{ color: '#111', backgroundColor: '#fff' }}>English</option>
+                    <option value="fr" style={{ color: '#111', backgroundColor: '#fff' }}>Français</option>
+                    <option value="es" style={{ color: '#111', backgroundColor: '#fff' }}>Español</option>
+                    <option value="de" style={{ color: '#111', backgroundColor: '#fff' }}>Deutsch</option>
                   </select>
                 </div>
 
@@ -191,4 +191,3 @@ export default function SettingsPage() {
     </main>
   )
 }
-
