@@ -1,0 +1,402 @@
+// LinkSphere Database Schema
+// Production-grade schema for 1,000,000 slot platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// CORE MODELS
+// ============================================================================
+
+/// User accounts - supports both regular users and admins
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String?
+  name          String?
+  avatarUrl     String?
+  role          UserRole  @default(USER)
+  badge         UserBadge @default(NONE)
+  locale        String    @default("en")
+  timezone      String?
+  emailVerified DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  slots        Slot[]
+  purchases    Purchase[]
+  reservations Reservation[]
+  reports      AbuseReport[]      @relation("UserReports")
+  adminActions AdminAction[]      @relation("AdminActionUser")
+
+  @@index([email])
+  @@index([role])
+  @@index([badge])
+}
+
+/// User badge based on purchase history
+enum UserBadge {
+  NONE              // No purchases yet
+  OWNER             // 1-9 slots
+  MULTI_OWNER       // 10-49 slots
+  INVESTOR          // 50-99 slots
+  ENTERPRISE        // 100+ slots
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+/// Categories for slot classification
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String?
+  icon        String?
+  color       String?  // Hex color for UI
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  slots Slot[]
+
+  @@index([slug])
+  @@index([isActive])
+}
+
+/// Languages supported by the platform
+model Language {
+  id          String   @id @default(cuid())
+  code        String   @unique // e.g., "en", "fr", "es", "de"
+  name        String   // e.g., "English", "Français"
+  nativeName  String?  // e.g., "English", "Français"
+  isActive    Boolean  @default(true)
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  slots Slot[]
+
+  @@index([code])
+  @@index([isActive])
+}
+
+/// Countries for geographic targeting
+model Country {
+  id          String   @id @default(cuid())
+  code        String   @unique // ISO 3166-1 alpha-2, e.g., "US", "FR"
+  name        String
+  continent   String?
+  flagEmoji   String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  slots Slot[]
+
+  @@index([code])
+  @@index([isActive])
+}
+
+// ============================================================================
+// SLOT SYSTEM
+// ============================================================================
+
+/// Slot availability status
+enum SlotStatus {
+  AVAILABLE    // Can be purchased
+  RESERVED     // Temporarily held during checkout
+  SOLD         // Permanently owned
+  DISABLED     // Admin disabled (policy violation, etc.)
+}
+
+/// Moderation status for slot content
+enum ModerationStatus {
+  PENDING      // Awaiting review
+  APPROVED     // Content approved
+  REJECTED     // Content rejected
+  FLAGGED      // Flagged for review
+}
+
+/// Visual slots on the 3D sphere
+model Slot {
+  id                String            @id @default(cuid())
+  slotNumber        Int               @unique // 1 to 1,000,000
+  status            SlotStatus        @default(AVAILABLE)
+  
+  // 3D positioning (spherical coordinates)
+  theta             Float             // Horizontal angle (0 to 2π)
+  phi               Float             // Vertical angle (0 to π)
+  
+  // Slot content (owner can edit)
+  title             String?
+  description       String?
+  targetUrl         String?
+  logoUrl           String?
+  bannerUrl         String?
+  
+  // Classification
+  categoryId        String?
+  countryId         String?
+  languageId        String?
+  
+  // Ownership
+  ownerId           String?
+  purchasedAt       DateTime?
+  purchasePrice     Float?
+  
+  // Moderation
+  moderationStatus  ModerationStatus  @default(PENDING)
+  moderationNotes   String?
+  
+  // Analytics counters
+  viewCount         Int               @default(0)
+  clickCount        Int               @default(0)
+  
+  // Timestamps
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  
+  // Relations
+  category          Category?         @relation(fields: [categoryId], references: [id])
+  country           Country?          @relation(fields: [countryId], references: [id])
+  language          Language?         @relation(fields: [languageId], references: [id])
+  owner             User?             @relation(fields: [ownerId], references: [id])
+  purchases         Purchase[]
+  reservations      Reservation[]
+  analytics         AnalyticsEvent[]
+  reports           AbuseReport[]
+  adminActions      AdminAction[]
+
+  @@index([slotNumber])
+  @@index([status])
+  @@index([ownerId])
+  @@index([categoryId])
+  @@index([moderationStatus])
+}
+
+// ============================================================================
+// COMMERCE
+// ============================================================================
+
+/// Purchase transactions
+model Purchase {
+  id              String        @id @default(cuid())
+  slotId          String?
+  userId          String
+  
+  // Pack information
+  packSize        Int           @default(1)    // Number of slots in this purchase
+  packName        String?                      // "Slot Unique", "Pack 10", etc.
+  
+  amount          Float
+  originalAmount  Float?                       // Before discount
+  discountPercent Int           @default(0)   // Discount applied
+  currency        String        @default("EUR")
+  
+  // Stripe integration
+  stripeSessionId String?       @unique
+  stripePaymentId String?
+  
+  status          PaymentStatus @default(PENDING)
+  purchasedAt     DateTime      @default(now())
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  // Relations
+  slot            Slot?         @relation(fields: [slotId], references: [id])
+  user            User          @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([slotId])
+  @@index([status])
+  @@index([stripeSessionId])
+  @@index([packSize])
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+/// Temporary slot reservations during checkout
+model Reservation {
+  id          String             @id @default(cuid())
+  slotId      String
+  userId      String
+  expiresAt   DateTime
+  status      ReservationStatus  @default(ACTIVE)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  // Relations
+  slot        Slot               @relation(fields: [slotId], references: [id])
+  user        User               @relation(fields: [userId], references: [id])
+
+  @@index([slotId])
+  @@index([userId])
+  @@index([expiresAt])
+  @@index([status])
+}
+
+enum ReservationStatus {
+  ACTIVE
+  COMPLETED
+  EXPIRED
+  CANCELLED
+}
+
+// ============================================================================
+// ANALYTICS
+// ============================================================================
+
+/// Analytics events for tracking slot performance
+model AnalyticsEvent {
+  id          String          @id @default(cuid())
+  slotId      String
+  eventType   AnalyticsEventType
+  metadata    String?         // JSON string for additional data
+  ipAddress   String?
+  userAgent   String?
+  country     String?
+  createdAt   DateTime        @default(now())
+
+  // Relations
+  slot        Slot            @relation(fields: [slotId], references: [id])
+
+  @@index([slotId])
+  @@index([eventType])
+  @@index([createdAt])
+}
+
+enum AnalyticsEventType {
+  VIEW
+  CLICK
+  HOVER
+}
+
+// ============================================================================
+// MODERATION & ADMIN
+// ============================================================================
+
+/// Abuse reports from users or automated systems
+model AbuseReport {
+  id          String        @id @default(cuid())
+  slotId      String
+  reporterId  String?       // Optional - can be anonymous
+  reason      String
+  details     String?
+  status      ReportStatus  @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  // Relations
+  slot        Slot          @relation(fields: [slotId], references: [id])
+  reporter    User?         @relation("UserReports", fields: [reporterId], references: [id])
+
+  @@index([slotId])
+  @@index([status])
+}
+
+enum ReportStatus {
+  PENDING
+  REVIEWING
+  RESOLVED
+  DISMISSED
+}
+
+/// Admin action log for audit trail
+model AdminAction {
+  id          String        @id @default(cuid())
+  adminId     String
+  actionType  String
+  slotId      String?
+  targetId    String?       // User ID or other target
+  details     String?       // JSON string for action details
+  createdAt   DateTime      @default(now())
+
+  // Relations
+  admin       User          @relation("AdminActionUser", fields: [adminId], references: [id])
+  slot        Slot?         @relation(fields: [slotId], references: [id])
+
+  @@index([adminId])
+  @@index([slotId])
+  @@index([createdAt])
+}
+
+// ============================================================================
+// PLATFORM SETTINGS
+// ============================================================================
+
+/// Global platform configuration
+model Setting {
+  id          String   @id @default(cuid())
+  key        String   @unique
+  value      String   // JSON string for complex values
+  description String?
+  updatedAt  DateTime @updatedAt
+
+  @@index([key])
+}
+
+/// Global statistics (cached counters for performance)
+model GlobalStats {
+  id              String   @id @default(cuid())
+  totalSlots      Int      @default(1000000)
+  availableSlots  Int      @default(1000000)
+  soldSlots       Int      @default(0)
+  reservedSlots   Int      @default(0)
+  totalRevenue    Float    @default(0)
+  totalUsers      Int      @default(0)
+  totalPurchases  Int      @default(0)
+  updatedAt       DateTime @updatedAt
+}
+
+/// Pack configuration for purchases
+model PackConfig {
+  id              String   @id @default(cuid())
+  packSize        Int      @unique      // 1, 10, 50, 100
+  name            String                // "Slot Unique", "Pack 10 Slots", etc.
+  price           Float                 // Actual price
+  originalPrice   Float                 // Price before discount
+  discountPercent Int                   // Discount percentage
+  isActive        Boolean  @default(true)
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([packSize])
+  @@index([isActive])
+}
+
+/// Translation keys for i18n
+model Translation {
+  id          String   @id @default(cuid())
+  key         String
+  locale      String
+  value       String
+  namespace   String   @default("common")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([key, locale, namespace])
+  @@index([locale])
+  @@index([namespace])
+}

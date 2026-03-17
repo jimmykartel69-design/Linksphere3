@@ -1,0 +1,1576 @@
+==========================================
+[2026-03-16 07:23:20] Starting: bun install
+==========================================
+[BUN] Installing dependencies...
+[0.29ms] ".env"
+bun install v1.3.10 (30e609e0)
+
++ @tailwindcss/postcss@4.1.18
++ @types/react@19.2.8
++ @types/react-dom@19.2.3
++ bun-types@1.3.6
++ eslint@9.39.2
++ eslint-config-next@16.1.3
++ tailwindcss@4.1.18
++ tw-animate-css@1.4.0
++ typescript@5.9.3
++ @dnd-kit/core@6.3.1
++ @dnd-kit/sortable@10.0.0
++ @dnd-kit/utilities@3.2.2
++ @hookform/resolvers@5.2.2
++ @mdxeditor/editor@3.52.3
++ @prisma/client@6.19.2
++ @radix-ui/react-accordion@1.2.12
++ @radix-ui/react-alert-dialog@1.1.15
++ @radix-ui/react-aspect-ratio@1.1.8
++ @radix-ui/react-avatar@1.1.11
++ @radix-ui/react-checkbox@1.3.3
++ @radix-ui/react-collapsible@1.1.12
++ @radix-ui/react-context-menu@2.2.16
++ @radix-ui/react-dialog@1.1.15
++ @radix-ui/react-dropdown-menu@2.1.16
++ @radix-ui/react-hover-card@1.1.15
++ @radix-ui/react-label@2.1.8
++ @radix-ui/react-menubar@1.1.16
++ @radix-ui/react-navigation-menu@1.2.14
++ @radix-ui/react-popover@1.1.15
++ @radix-ui/react-progress@1.1.8
++ @radix-ui/react-radio-group@1.3.8
++ @radix-ui/react-scroll-area@1.2.10
++ @radix-ui/react-select@2.2.6
++ @radix-ui/react-separator@1.1.8
++ @radix-ui/react-slider@1.3.6
++ @radix-ui/react-slot@1.2.4
++ @radix-ui/react-switch@1.2.6
++ @radix-ui/react-tabs@1.1.13
++ @radix-ui/react-toast@1.2.15
++ @radix-ui/react-toggle@1.1.10
++ @radix-ui/react-toggle-group@1.1.11
++ @radix-ui/react-tooltip@1.2.8
++ @reactuses/core@6.1.9
++ @tanstack/react-query@5.90.19
++ @tanstack/react-table@8.21.3
++ class-variance-authority@0.7.1
++ clsx@2.1.1
++ cmdk@1.1.1
++ date-fns@4.1.0
++ embla-carousel-react@8.6.0
++ framer-motion@12.26.2
++ input-otp@1.4.2
++ lucide-react@0.525.0
++ next@16.1.3
++ next-auth@4.24.13
++ next-intl@4.7.0
++ next-themes@0.4.6
++ prisma@6.19.2
++ react@19.2.3
++ react-day-picker@9.13.0
++ react-dom@19.2.3
++ react-hook-form@7.71.1
++ react-markdown@10.1.0
++ react-resizable-panels@3.0.6
++ react-syntax-highlighter@15.6.6
++ recharts@2.15.4
++ sharp@0.34.5
++ sonner@2.0.7
++ tailwind-merge@3.4.0
++ tailwindcss-animate@1.0.7
++ uuid@11.1.0
++ vaul@1.1.2
++ z-ai-web-dev-sdk@0.0.17
++ zod@4.3.5
++ zustand@5.0.10
+
+827 packages installed [11.67s]
+==========================================
+[2026-03-16 07:23:32] Completed: bun install
+[LOG] Step: bun install | Duration: 12s
+==========================================
+
+==========================================
+[2026-03-16 07:23:32] Starting: bun run db:push
+==========================================
+[BUN] Setting up database...
+$ prisma db push
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": SQLite database "custom.db" at "file:/home/z/my-project/db/custom.db"
+
+SQLite database custom.db created at file:/home/z/my-project/db/custom.db
+
+🚀  Your database is now in sync with your Prisma schema. Done in 18ms
+
+Running generate... (Use --skip-generate to skip the generators)
+[2K[1A[2K[GRunning generate... - Prisma Client
+[2K[1A[2K[G✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 73ms
+┌─────────────────────────────────────────────────────────┐
+│  Update available 6.19.2 -> 7.5.0                       │
+│                                                         │
+│  This is a major update - please follow the guide at    │
+│  https://pris.ly/d/major-version-upgrade                │
+│                                                         │
+│  Run the following to update                            │
+│    npm i --save-dev prisma@latest                       │
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘
+
+==========================================
+[2026-03-16 07:23:33] Completed: bun run db:push
+[LOG] Step: bun run db:push | Duration: 1s
+==========================================
+
+==========================================
+[2026-03-16 07:23:33] Starting: Starting Next.js dev server
+==========================================
+[BUN] Starting development server...
+==========================================
+$ next dev -p 3000 2>&1 | tee dev.log
+[2026-03-16 07:23:33] Completed: Starting Next.js dev server
+[LOG] Step: Starting Next.js dev server | Duration: 0s
+==========================================
+
+==========================================
+[2026-03-16 07:23:33] Starting: Waiting for Next.js dev server
+==========================================
+Waiting for Next.js dev server to be ready on localhost:3000...
+Attempt 1/60: Next.js dev server not ready yet, waiting...
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://21.0.11.145:3000
+- Environments: .env
+
+✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- include was updated to add '.next/dev/types/**/*.ts'
+
+  The following mandatory changes were made to your tsconfig.json:
+
+  	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+
+✓ Ready in 927ms
+ GET / 200 in 2.9s (compile: 2.7s, render: 185ms)
+Next.js dev server is ready!
+==========================================
+ GET / 200 in 2.9s (compile: 2.8s, render: 131ms)
+[2026-03-16 07:23:37] Completed: Waiting for Next.js dev server
+[LOG] Step: Waiting for Next.js dev server | Duration: 4s
+==========================================
+
+==========================================
+[2026-03-16 07:23:37] Starting: Health check
+==========================================
+[BUN] Performing health check...
+ GET / 200 in 22ms (compile: 1773µs, render: 20ms)
+[BUN] Health check passed
+==========================================
+[2026-03-16 07:23:37] Completed: Health check
+[LOG] Step: Health check | Duration: 0s
+==========================================
+
+==========================================
+[2026-03-16 07:23:37] Starting: Starting mini-services
+==========================================
+Found mini-services directory, scanning for sub-services...
+Mini-services startup completed. Started 0 service(s).
+==========================================
+[2026-03-16 07:23:37] Completed: Starting mini-services
+[LOG] Step: Starting mini-services | Duration: 0s
+==========================================
+
+Next.js dev server is running in background (PID: 331).
+Use 'kill 331' to stop it.
+⚠ Cross origin request detected from preview-chat-c237887c-8a61-402a-bfad-19d7c7a5a09c.space.z.ai to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / 200 in 45ms (compile: 6ms, render: 39ms)
+✓ Compiled in 198ms
+✓ Compiled in 160ms
+✓ Compiled in 153ms
+✓ Compiled in 164ms
+✓ Compiled in 226ms
+✓ Compiled in 171ms
+✓ Compiled in 203ms
+✓ Compiled in 194ms
+ GET / 200 in 25ms (compile: 3ms, render: 22ms)
+ GET / 200 in 171ms (compile: 61ms, render: 110ms)
+ GET / 200 in 39ms (compile: 3ms, render: 36ms)
+ GET / 200 in 32ms (compile: 3ms, render: 29ms)
+ GET / 200 in 26ms (compile: 2ms, render: 24ms)
+✓ Compiled in 697ms
+ GET / 200 in 77ms (compile: 49ms, render: 28ms)
+ GET / 200 in 75ms (compile: 36ms, render: 39ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 22ms (compile: 3ms, render: 20ms)
+ GET / 200 in 22ms (compile: 3ms, render: 19ms)
+ GET / 200 in 27ms (compile: 3ms, render: 24ms)
+ GET / 200 in 26ms (compile: 3ms, render: 23ms)
+ GET / 200 in 18ms (compile: 2ms, render: 16ms)
+ GET / 200 in 21ms (compile: 2ms, render: 19ms)
+ GET / 200 in 27ms (compile: 3ms, render: 25ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 19ms (compile: 2ms, render: 17ms)
+ GET / 200 in 17ms (compile: 3ms, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 13ms)
+ GET / 200 in 20ms (compile: 2ms, render: 18ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 18ms (compile: 3ms, render: 15ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 21ms (compile: 3ms, render: 19ms)
+ GET / 200 in 21ms (compile: 3ms, render: 19ms)
+ GET / 200 in 25ms (compile: 3ms, render: 22ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 26ms (compile: 2ms, render: 23ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 13ms (compile: 1994µs, render: 11ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 13ms (compile: 2ms, render: 11ms)
+ GET / 200 in 13ms (compile: 1777µs, render: 11ms)
+ GET / 200 in 19ms (compile: 2ms, render: 17ms)
+ GET / 200 in 21ms (compile: 1913µs, render: 19ms)
+ GET / 200 in 13ms (compile: 1683µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1860µs, render: 11ms)
+ GET / 200 in 14ms (compile: 1807µs, render: 12ms)
+ GET / 200 in 22ms (compile: 3ms, render: 19ms)
+ GET / 200 in 24ms (compile: 3ms, render: 21ms)
+ GET / 200 in 12ms (compile: 1718µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1689µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1856µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1956µs, render: 11ms)
+ GET / 200 in 18ms (compile: 1760µs, render: 16ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 14ms (compile: 1846µs, render: 12ms)
+ GET / 200 in 13ms (compile: 1721µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1607µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1827µs, render: 11ms)
+ GET / 200 in 13ms (compile: 2ms, render: 10ms)
+ GET / 200 in 19ms (compile: 1990µs, render: 17ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 12ms (compile: 1677µs, render: 11ms)
+ GET / 200 in 30ms (compile: 2ms, render: 28ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 1961µs, render: 13ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 14ms (compile: 1943µs, render: 12ms)
+ GET / 200 in 14ms (compile: 1869µs, render: 13ms)
+ GET / 200 in 23ms (compile: 3ms, render: 20ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+ GET / 200 in 21ms (compile: 3ms, render: 18ms)
+ GET / 200 in 21ms (compile: 3ms, render: 19ms)
+ GET / 200 in 24ms (compile: 3ms, render: 21ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 21ms (compile: 3ms, render: 18ms)
+ GET / 200 in 21ms (compile: 2ms, render: 18ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+ GET / 200 in 21ms (compile: 3ms, render: 18ms)
+ GET / 200 in 23ms (compile: 3ms, render: 20ms)
+ GET / 200 in 28ms (compile: 2ms, render: 26ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 17ms (compile: 3ms, render: 14ms)
+ GET / 200 in 16ms (compile: 3ms, render: 13ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 17ms (compile: 4ms, render: 13ms)
+ GET / 200 in 16ms (compile: 2ms, render: 13ms)
+ GET / 200 in 24ms (compile: 2ms, render: 21ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 15ms (compile: 2ms, render: 12ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 1947µs, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 12ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 12ms)
+ GET / 200 in 26ms (compile: 2ms, render: 24ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 27ms (compile: 7ms, render: 20ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 19ms (compile: 3ms, render: 16ms)
+ GET / 200 in 16ms (compile: 2ms, render: 13ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 33ms (compile: 2ms, render: 30ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 22ms (compile: 1883µs, render: 20ms)
+ GET / 200 in 24ms (compile: 4ms, render: 20ms)
+ GET / 200 in 18ms (compile: 2ms, render: 16ms)
+ GET / 200 in 18ms (compile: 2ms, render: 15ms)
+ GET / 200 in 20ms (compile: 1974µs, render: 18ms)
+ GET / 200 in 16ms (compile: 1965µs, render: 14ms)
+ GET / 200 in 209ms (compile: 3ms, render: 207ms)
+ GET /grid.svg 404 in 483ms (compile: 411ms, render: 72ms)
+ GET /grid.svg 404 in 43ms (compile: 8ms, render: 35ms)
+ GET /category/gaming 404 in 27ms (compile: 7ms, render: 20ms)
+ GET /category/gaming 404 in 43ms (compile: 6ms, render: 36ms)
+ GET / 200 in 73ms (compile: 3ms, render: 70ms)
+ GET /grid.svg 404 in 32ms (compile: 5ms, render: 26ms)
+ GET /grid.svg 404 in 37ms (compile: 7ms, render: 30ms)
+ GET / 200 in 23ms (compile: 3ms, render: 20ms)
+ GET /explore 404 in 27ms (compile: 7ms, render: 19ms)
+ GET /explore 404 in 45ms (compile: 5ms, render: 40ms)
+ GET / 200 in 66ms (compile: 3ms, render: 63ms)
+ GET /grid.svg 404 in 53ms (compile: 7ms, render: 47ms)
+ GET /grid.svg 404 in 43ms (compile: 10ms, render: 33ms)
+ GET / 200 in 15ms (compile: 3ms, render: 12ms)
+ GET /auth/register 404 in 24ms (compile: 11ms, render: 13ms)
+ GET /auth/register 404 in 42ms (compile: 9ms, render: 33ms)
+ GET / 200 in 52ms (compile: 3ms, render: 50ms)
+ GET /grid.svg 404 in 39ms (compile: 9ms, render: 30ms)
+ GET /category/creative 404 in 17ms (compile: 7ms, render: 10ms)
+ GET /category/creative 404 in 35ms (compile: 8ms, render: 27ms)
+ GET / 200 in 55ms (compile: 2ms, render: 52ms)
+ GET /grid.svg 404 in 27ms (compile: 3ms, render: 23ms)
+ GET / 200 in 12ms (compile: 2ms, render: 10ms)
+ GET / 200 in 11ms (compile: 1710µs, render: 10ms)
+ GET / 200 in 13ms (compile: 2ms, render: 11ms)
+ GET / 200 in 15ms (compile: 1834µs, render: 13ms)
+ GET / 200 in 30ms (compile: 1983µs, render: 28ms)
+ GET / 200 in 20ms (compile: 7ms, render: 13ms)
+ GET / 200 in 13ms (compile: 2ms, render: 11ms)
+ GET /auth/login 404 in 22ms (compile: 4ms, render: 17ms)
+ GET /auth/login 404 in 32ms (compile: 7ms, render: 25ms)
+ GET / 200 in 55ms (compile: 2ms, render: 53ms)
+ GET /grid.svg 404 in 66ms (compile: 3ms, render: 62ms)
+ GET / 200 in 68ms (compile: 6ms, render: 62ms)
+ GET / 200 in 26ms (compile: 4ms, render: 22ms)
+ GET / 200 in 64ms (compile: 1915µs, render: 63ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 14ms (compile: 2ms, render: 12ms)
+ GET / 200 in 48ms (compile: 1752µs, render: 46ms)
+ GET /auth/register 404 in 20ms (compile: 9ms, render: 11ms)
+ GET /auth/register 404 in 31ms (compile: 8ms, render: 23ms)
+ GET / 200 in 53ms (compile: 2ms, render: 50ms)
+✓ Compiled in 129ms
+✓ Compiled in 113ms
+ GET / 200 in 250ms (compile: 78ms, render: 172ms)
+ GET / 200 in 25ms (compile: 4ms, render: 21ms)
+ GET / 200 in 16ms (compile: 1877µs, render: 14ms)
+ GET / 200 in 18ms (compile: 1881µs, render: 16ms)
+ GET / 200 in 15ms (compile: 3ms, render: 13ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 20ms (compile: 2ms, render: 17ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 19ms (compile: 2ms, render: 17ms)
+ GET /auth/login 404 in 18ms (compile: 4ms, render: 14ms)
+ GET /auth/login 404 in 38ms (compile: 6ms, render: 32ms)
+ GET / 200 in 65ms (compile: 2ms, render: 63ms)
+ GET / 200 in 53ms (compile: 1821µs, render: 51ms)
+✓ Compiled in 129ms
+ GET / 200 in 261ms (compile: 57ms, render: 203ms)
+ GET / 200 in 91ms (compile: 2ms, render: 89ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+✓ Compiled in 160ms
+⨯ ./src/app/page.tsx:18:16
+Ecmascript file had an error
+[0m [90m 16 |[39m
+ [90m 17 |[39m [90m// Dynamic import for Header to avoid hydration issues with Radix UI[39m
+[31m[1m>[22m[39m[90m 18 |[39m [36mconst[39m [33mHeader[39m [33m=[39m dynamic(
+ [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 19 |[39m   () [33m=>[39m [36mimport[39m([32m'@/components/layout/Header'[39m)[33m.[39mthen(mod [33m=>[39m mod[33m.[39m[33mHeader[39m)[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 20 |[39m   { 
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 21 |[39m     ssr[33m:[39m [36mfalse[39m[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 22 |[39m     loading[33m:[39m () [33m=>[39m (
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 23 |[39m       [33m<[39m[33mheader[39m className[33m=[39m[32m"fixed top-0 left-0 right-0 z-50 h-16 bg-transparent"[39m [33m/[39m[33m>[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 24 |[39m     )[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 25 |[39m   }
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 26 |[39m )
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 27 |[39m
+ [90m 28 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mHomePage[39m() {
+ [90m 29 |[39m   [90m// Initial stats (in production, these would be fetched from the database)[39m[0m
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+ GET / 500 in 1024ms (compile: 898ms, render: 126ms)
+⨯ ./src/app/page.tsx:18:16
+Ecmascript file had an error
+[0m [90m 16 |[39m
+ [90m 17 |[39m [90m// Dynamic import for Header to avoid hydration issues with Radix UI[39m
+[31m[1m>[22m[39m[90m 18 |[39m [36mconst[39m [33mHeader[39m [33m=[39m dynamic(
+ [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 19 |[39m   () [33m=>[39m [36mimport[39m([32m'@/components/layout/Header'[39m)[33m.[39mthen(mod [33m=>[39m mod[33m.[39m[33mHeader[39m)[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 20 |[39m   { 
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 21 |[39m     ssr[33m:[39m [36mfalse[39m[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 22 |[39m     loading[33m:[39m () [33m=>[39m (
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 23 |[39m       [33m<[39m[33mheader[39m className[33m=[39m[32m"fixed top-0 left-0 right-0 z-50 h-16 bg-transparent"[39m [33m/[39m[33m>[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 24 |[39m     )[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 25 |[39m   }
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 26 |[39m )
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 27 |[39m
+ [90m 28 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mHomePage[39m() {
+ [90m 29 |[39m   [90m// Initial stats (in production, these would be fetched from the database)[39m[0m
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+ GET / 500 in 16ms (compile: 9ms, render: 8ms)
+⨯ ./src/app/page.tsx:18:16
+Ecmascript file had an error
+[0m [90m 16 |[39m
+ [90m 17 |[39m [90m// Dynamic import for Header to avoid hydration issues with Radix UI[39m
+[31m[1m>[22m[39m[90m 18 |[39m [36mconst[39m [33mHeader[39m [33m=[39m dynamic(
+ [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 19 |[39m   () [33m=>[39m [36mimport[39m([32m'@/components/layout/Header'[39m)[33m.[39mthen(mod [33m=>[39m mod[33m.[39m[33mHeader[39m)[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 20 |[39m   { 
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 21 |[39m     ssr[33m:[39m [36mfalse[39m[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 22 |[39m     loading[33m:[39m () [33m=>[39m (
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 23 |[39m       [33m<[39m[33mheader[39m className[33m=[39m[32m"fixed top-0 left-0 right-0 z-50 h-16 bg-transparent"[39m [33m/[39m[33m>[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 24 |[39m     )[33m,[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 25 |[39m   }
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+[31m[1m>[22m[39m[90m 26 |[39m )
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 27 |[39m
+ [90m 28 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mHomePage[39m() {
+ [90m 29 |[39m   [90m// Initial stats (in production, these would be fetched from the database)[39m[0m
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+ GET / 500 in 17ms (compile: 9ms, render: 8ms)
+✓ Compiled in 134ms
+ GET / 200 in 226ms (compile: 51ms, render: 175ms)
+ GET / 200 in 67ms (compile: 3ms, render: 63ms)
+ GET / 200 in 55ms (compile: 1986µs, render: 53ms)
+ GET / 200 in 58ms (compile: 5ms, render: 53ms)
+ GET / 200 in 19ms (compile: 5ms, render: 15ms)
+ GET / 200 in 19ms (compile: 3ms, render: 17ms)
+✓ Compiled in 122ms
+ GET / 200 in 90ms (compile: 49ms, render: 41ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 13ms (compile: 2ms, render: 11ms)
+ GET / 200 in 18ms (compile: 2ms, render: 15ms)
+ GET /auth/register 404 in 86ms (compile: 62ms, render: 24ms)
+ GET /auth/register 404 in 81ms (compile: 9ms, render: 72ms)
+ GET / 200 in 163ms (compile: 4ms, render: 159ms)
+ GET / 200 in 62ms (compile: 3ms, render: 59ms)
+ GET / 200 in 72ms (compile: 3ms, render: 69ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET /auth/register 404 in 21ms (compile: 6ms, render: 15ms)
+ GET /auth/register 404 in 41ms (compile: 7ms, render: 34ms)
+✓ Compiled in 159ms
+ GET /auth/register 404 in 95ms (compile: 55ms, render: 40ms)
+ GET /auth/register 404 in 89ms (compile: 7ms, render: 82ms)
+ GET /auth/register 404 in 26ms (compile: 7ms, render: 19ms)
+✓ Compiled in 158ms
+✓ Compiled in 184ms
+ GET /auth/register 404 in 90ms (compile: 59ms, render: 32ms)
+ GET /auth/register 404 in 22ms (compile: 8ms, render: 14ms)
+ GET /auth/register 404 in 74ms (compile: 5ms, render: 69ms)
+ GET /auth/register 404 in 31ms (compile: 7ms, render: 24ms)
+✓ Compiled in 152ms
+ GET /auth/register 404 in 80ms (compile: 52ms, render: 29ms)
+ GET /auth/register 404 in 112ms (compile: 9ms, render: 103ms)
+ GET /auth/register 404 in 108ms (compile: 25ms, render: 84ms)
+ GET / 200 in 208ms (compile: 50ms, render: 158ms)
+✓ Compiled in 174ms
+ GET / 200 in 82ms (compile: 51ms, render: 31ms)
+ GET / 200 in 24ms (compile: 2ms, render: 22ms)
+ GET / 200 in 20ms (compile: 3ms, render: 18ms)
+ GET / 200 in 24ms (compile: 2ms, render: 21ms)
+ GET / 200 in 14ms (compile: 1745µs, render: 12ms)
+ GET / 200 in 17ms (compile: 1709µs, render: 15ms)
+ GET / 200 in 16ms (compile: 1798µs, render: 14ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 18ms (compile: 1771µs, render: 16ms)
+ GET / 200 in 26ms (compile: 3ms, render: 23ms)
+ GET / 200 in 25ms (compile: 2ms, render: 23ms)
+ GET / 200 in 20ms (compile: 5ms, render: 15ms)
+ GET / 200 in 14ms (compile: 1891µs, render: 12ms)
+ GET / 200 in 17ms (compile: 1673µs, render: 15ms)
+ GET / 200 in 30ms (compile: 3ms, render: 27ms)
+ GET / 200 in 16ms (compile: 1941µs, render: 14ms)
+ GET / 200 in 15ms (compile: 1826µs, render: 13ms)
+ GET / 200 in 14ms (compile: 1668µs, render: 12ms)
+ GET / 200 in 14ms (compile: 1817µs, render: 12ms)
+ GET / 200 in 13ms (compile: 1715µs, render: 12ms)
+ GET / 200 in 15ms (compile: 1829µs, render: 13ms)
+ GET / 200 in 17ms (compile: 1599µs, render: 16ms)
+ GET / 200 in 14ms (compile: 1819µs, render: 12ms)
+ GET / 200 in 16ms (compile: 1704µs, render: 15ms)
+ GET / 200 in 14ms (compile: 1726µs, render: 13ms)
+ GET / 200 in 14ms (compile: 1797µs, render: 13ms)
+ GET / 200 in 19ms (compile: 2ms, render: 17ms)
+ GET / 200 in 23ms (compile: 2ms, render: 21ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 24ms (compile: 3ms, render: 20ms)
+ GET / 200 in 84ms (compile: 50ms, render: 33ms)
+ GET / 200 in 25ms (compile: 2ms, render: 22ms)
+ GET / 200 in 15ms (compile: 1924µs, render: 13ms)
+ GET / 200 in 18ms (compile: 1790µs, render: 16ms)
+ GET / 200 in 27ms (compile: 4ms, render: 23ms)
+ GET / 200 in 16ms (compile: 1858µs, render: 14ms)
+ GET / 200 in 19ms (compile: 1780µs, render: 18ms)
+ GET / 200 in 24ms (compile: 2ms, render: 21ms)
+ GET / 200 in 15ms (compile: 1779µs, render: 13ms)
+ GET / 200 in 16ms (compile: 1755µs, render: 14ms)
+ GET / 200 in 18ms (compile: 1894µs, render: 16ms)
+ GET / 200 in 19ms (compile: 2ms, render: 16ms)
+ GET / 200 in 14ms (compile: 1810µs, render: 13ms)
+ GET / 200 in 32ms (compile: 2ms, render: 29ms)
+ GET / 200 in 17ms (compile: 1843µs, render: 16ms)
+ GET / 200 in 15ms (compile: 1825µs, render: 13ms)
+ GET / 200 in 17ms (compile: 5ms, render: 12ms)
+ GET / 200 in 18ms (compile: 1650µs, render: 16ms)
+ GET / 200 in 20ms (compile: 2ms, render: 17ms)
+ GET / 200 in 20ms (compile: 2ms, render: 17ms)
+ GET / 200 in 13ms (compile: 1367µs, render: 11ms)
+ GET / 200 in 14ms (compile: 1530µs, render: 12ms)
+ GET / 200 in 19ms (compile: 1930µs, render: 17ms)
+ GET / 200 in 23ms (compile: 3ms, render: 20ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+ GET / 200 in 27ms (compile: 2ms, render: 24ms)
+ GET / 200 in 19ms (compile: 2ms, render: 17ms)
+ GET / 200 in 18ms (compile: 3ms, render: 16ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 14ms (compile: 1772µs, render: 13ms)
+ GET / 200 in 19ms (compile: 2ms, render: 16ms)
+ GET / 200 in 25ms (compile: 2ms, render: 23ms)
+✓ Compiled in 169ms
+ GET / 200 in 67ms (compile: 44ms, render: 23ms)
+ GET / 200 in 19ms (compile: 1807µs, render: 17ms)
+ GET / 200 in 23ms (compile: 3ms, render: 20ms)
+ GET / 200 in 15ms (compile: 1906µs, render: 13ms)
+ GET / 200 in 15ms (compile: 1823µs, render: 13ms)
+ GET / 200 in 14ms (compile: 1735µs, render: 12ms)
+ GET / 200 in 13ms (compile: 1633µs, render: 12ms)
+ GET / 200 in 22ms (compile: 1841µs, render: 20ms)
+ GET / 200 in 23ms (compile: 1829µs, render: 22ms)
+ GET / 200 in 17ms (compile: 1908µs, render: 15ms)
+ GET / 200 in 14ms (compile: 1899µs, render: 12ms)
+ GET / 200 in 14ms (compile: 1689µs, render: 12ms)
+ GET / 200 in 14ms (compile: 1660µs, render: 12ms)
+ GET / 200 in 14ms (compile: 1675µs, render: 12ms)
+ GET / 200 in 15ms (compile: 1847µs, render: 13ms)
+ GET / 200 in 15ms (compile: 1846µs, render: 13ms)
+ GET / 200 in 13ms (compile: 1651µs, render: 12ms)
+ GET / 200 in 13ms (compile: 2ms, render: 11ms)
+ GET / 200 in 13ms (compile: 1655µs, render: 11ms)
+ GET / 200 in 13ms (compile: 1614µs, render: 11ms)
+ GET / 200 in 19ms (compile: 1596µs, render: 17ms)
+ GET / 200 in 14ms (compile: 1710µs, render: 12ms)
+ GET / 200 in 15ms (compile: 1618µs, render: 13ms)
+ GET / 200 in 15ms (compile: 1740µs, render: 14ms)
+ GET / 200 in 15ms (compile: 1735µs, render: 14ms)
+ GET / 200 in 16ms (compile: 1743µs, render: 14ms)
+ GET / 200 in 28ms (compile: 3ms, render: 26ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+ GET / 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 14ms (compile: 1770µs, render: 12ms)
+ GET / 200 in 15ms (compile: 1982µs, render: 13ms)
+ GET / 200 in 15ms (compile: 1848µs, render: 13ms)
+ GET / 200 in 20ms (compile: 2ms, render: 18ms)
+ GET / 200 in 24ms (compile: 3ms, render: 21ms)
+✓ Compiled in 137ms
+ GET / 200 in 86ms (compile: 56ms, render: 31ms)
+ GET / 200 in 35ms (compile: 3ms, render: 33ms)
+ GET /auth/login 200 in 411ms (compile: 394ms, render: 17ms)
+ GET / 200 in 24ms (compile: 1916µs, render: 22ms)
+ GET /auth/register 200 in 477ms (compile: 453ms, render: 23ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+✓ Compiled in 116ms
+✓ Compiled in 109ms
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+⨯ TypeError: Cannot read properties of null (reading 'useMemo')
+    at module evaluation (src/app/explore/page.tsx:58:26)
+  56 |
+  57 | // Mock data for demonstration
+> 58 | const mockSlots = useMemo(() => {
+     |                          ^
+  59 |   const slots = []
+  60 |   const statuses = ['AVAILABLE', 'SOLD', 'RESERVED']
+  61 |   const categories = ['Technology', 'Business', 'Creative', 'Gaming', 'Education'] {
+  digest: '1709529736'
+}
+ GET /explore 500 in 1673ms (compile: 981ms, render: 692ms)
+ GET / 200 in 254ms (compile: 62ms, render: 191ms)
+ GET /auth/register 200 in 18ms (compile: 1950µs, render: 16ms)
+ GET / 200 in 15ms (compile: 1935µs, render: 13ms)
+ GET /explore 200 in 87ms (compile: 61ms, render: 27ms)
+ GET /explore 200 in 14ms (compile: 1970µs, render: 12ms)
+ GET / 200 in 20ms (compile: 3ms, render: 17ms)
+Persisting failed: Unable to write SST file 00000936.sst
+
+Caused by:
+    No such file or directory (os error 2)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+
+thread 'tokio-runtime-worker' (1665) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Data for chunk_items_with_info_with_type (TaskId 176931))
+
+Caused by:
+    0: Looking up data for TaskId 176931 from database failed
+    1: Unable to open static sorted file referenced from 00000933.meta
+    2: Unable to open static sorted file 00000923.sst
+    3: No such file or directory (os error 2)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (1658) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for chunk_items_with_info_with_type (TaskId 176982))
+
+Caused by:
+    0: Looking up data for TaskId 176982 from database failed
+    1: Unable to open static sorted file referenced from 00000932.meta
+    2: Unable to open static sorted file 00000927.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (1665) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for chunk_items_with_info_with_type (TaskId 177038))
+
+Caused by:
+    0: Looking up data for TaskId 177038 from database failed
+    1: Unable to open static sorted file referenced from 00000915.meta
+    2: Unable to open static sorted file 00000911.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (1658) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for EcmascriptBrowserChunkVersion::new (TaskId 177068))
+
+Caused by:
+    0: Looking up data for TaskId 177068 from database failed
+    1: Unable to open static sorted file referenced from 00000903.meta
+    2: Unable to open static sorted file 00000898.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (1665) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <EcmascriptChunk as OutputAssetsReference>::references (TaskId 177085))
+
+Caused by:
+    0: Looking up data for TaskId 177085 from database failed
+    1: Unable to open static sorted file referenced from 00000915.meta
+    2: Unable to open static sorted file 00000911.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (1665) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for chunk_items_with_info_with_type (TaskId 177156))
+
+Caused by:
+    0: Looking up data for TaskId 177156 from database failed
+    1: Unable to open static sorted file referenced from 00000932.meta
+    2: Unable to open static sorted file 00000927.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (1665) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <EcmascriptChunkType as ChunkType>::chunk (TaskId 177203))
+
+Caused by:
+    0: Looking up data for TaskId 177203 from database failed
+    1: Unable to open static sorted file referenced from 00000915.meta
+    2: Unable to open static sorted file 00000911.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/pages/_app/build-manifest.json'
+}
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://21.0.11.145:3000
+- Environments: .env
+
+✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+✓ Ready in 923ms
+ GET / 200 in 3.4s (compile: 3.1s, render: 265ms)
+ GET / 200 in 78ms (compile: 11ms, render: 67ms)
+ GET / 200 in 56ms (compile: 2ms, render: 54ms)
+⚠ Cross origin request detected from preview-chat-c237887c-8a61-402a-bfad-19d7c7a5a09c.space.z.ai to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / 200 in 51ms (compile: 2ms, render: 49ms)
+⨯ ./src/components/3d/SlotSphere.tsx:14:1
+Export STATUS_COLORS doesn't exist in target module
+[0m [90m 12 |[39m [36mimport[39m { [33mSPHERE_RADIUS[39m[33m,[39m [33mTOTAL_SLOTS[39m } [36mfrom[39m [32m'@/lib/constants'[39m
+ [90m 13 |[39m [36mimport[39m { getSlotPosition } [36mfrom[39m [32m'@/lib/3d/slot-distribution'[39m
+[31m[1m>[22m[39m[90m 14 |[39m [36mimport[39m { [33mSTATUS_COLORS[39m[33m,[39m type [33mLODLevel[39m } [36mfrom[39m [32m'@/lib/3d/lod-manager'[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 15 |[39m
+ [90m 16 |[39m [36minterface[39m [33mSlotSphereProps[39m {
+ [90m 17 |[39m   statusMap[33m:[39m [33mMap[39m[33m<[39m[33mnumber[39m[33m,[39m string[33m>[39m[0m
+
+The export STATUS_COLORS was not found in module [project]/src/lib/3d/lod-manager.ts [app-client] (ecmascript).
+Did you mean to import getSlotDetailLevel?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Client Component Browser:
+    ./src/components/3d/SlotSphere.tsx [Client Component Browser]
+    ./src/components/3d/SphereExplorer.tsx [Client Component Browser]
+    ./src/app/explore/page.tsx [Client Component Browser]
+    ./src/app/explore/page.tsx [Server Component]
+
+
+ GET /explore 500 in 2.0s (compile: 1874ms, render: 143ms)
+⨯ ./src/components/3d/SlotSphere.tsx:14:1
+Export STATUS_COLORS doesn't exist in target module
+[0m [90m 12 |[39m [36mimport[39m { [33mSPHERE_RADIUS[39m[33m,[39m [33mTOTAL_SLOTS[39m } [36mfrom[39m [32m'@/lib/constants'[39m
+ [90m 13 |[39m [36mimport[39m { getSlotPosition } [36mfrom[39m [32m'@/lib/3d/slot-distribution'[39m
+[31m[1m>[22m[39m[90m 14 |[39m [36mimport[39m { [33mSTATUS_COLORS[39m[33m,[39m type [33mLODLevel[39m } [36mfrom[39m [32m'@/lib/3d/lod-manager'[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 15 |[39m
+ [90m 16 |[39m [36minterface[39m [33mSlotSphereProps[39m {
+ [90m 17 |[39m   statusMap[33m:[39m [33mMap[39m[33m<[39m[33mnumber[39m[33m,[39m string[33m>[39m[0m
+
+The export STATUS_COLORS was not found in module [project]/src/lib/3d/lod-manager.ts [app-client] (ecmascript).
+Did you mean to import getSlotDetailLevel?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Client Component Browser:
+    ./src/components/3d/SlotSphere.tsx [Client Component Browser]
+    ./src/components/3d/SphereExplorer.tsx [Client Component Browser]
+    ./src/app/explore/page.tsx [Client Component Browser]
+    ./src/app/explore/page.tsx [Server Component]
+
+
+ GET /explore 500 in 14ms (compile: 6ms, render: 8ms)
+ GET / 500 in 22ms (compile: 14ms, render: 8ms)
+✓ Compiled in 133ms
+ GET / 200 in 64ms (compile: 3ms, render: 61ms)
+ GET /explore 200 in 145ms (compile: 14ms, render: 131ms)
+ GET /checkout 200 in 490ms (compile: 403ms, render: 87ms)
+ GET /slot/1 200 in 1160ms (compile: 934ms, generate-params: 488ms, render: 226ms)
+ GET /auth/login 200 in 550ms (compile: 483ms, render: 67ms)
+ GET /auth/register 200 in 422ms (compile: 348ms, render: 75ms)
+ GET /dashboard 200 in 457ms (compile: 347ms, render: 109ms)
+ GET / 200 in 70ms (compile: 3ms, render: 66ms)
+ GET /explore 200 in 19ms (compile: 3ms, render: 15ms)
+ GET /slot/2 200 in 99ms (compile: 56ms, generate-params: 52ms, render: 43ms)
+ GET /explore 200 in 22ms (compile: 3ms, render: 19ms)
+ GET / 200 in 18ms (compile: 4ms, render: 14ms)
+ GET / 200 in 55ms (compile: 2ms, render: 53ms)
+ GET / 200 in 52ms (compile: 2ms, render: 50ms)
+ GET / 200 in 54ms (compile: 3ms, render: 51ms)
+ GET /explore 200 in 51ms (compile: 7ms, render: 44ms)
+ GET / 200 in 51ms (compile: 2ms, render: 49ms)
+ GET /explore 200 in 15ms (compile: 2ms, render: 13ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+✓ Compiled in 223ms
+ GET / 200 in 16ms (compile: 3ms, render: 13ms)
+ GET / 200 in 68ms (compile: 2ms, render: 65ms)
+ GET /explore 200 in 255ms (compile: 69ms, render: 186ms)
+ GET / 200 in 66ms (compile: 4ms, render: 62ms)
+ GET /explore 200 in 19ms (compile: 2ms, render: 17ms)
+ GET / 200 in 18ms (compile: 2ms, render: 16ms)
+✓ Compiled in 177ms
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 54ms (compile: 2ms, render: 52ms)
+ GET /explore 200 in 41ms (compile: 2ms, render: 38ms)
+ GET /checkout 200 in 52ms (compile: 7ms, render: 44ms)
+ GET /slot/1 200 in 518ms (compile: 150ms, generate-params: 73ms, render: 368ms)
+ GET /dashboard 200 in 305ms (compile: 158ms, render: 147ms)
+ GET / 200 in 70ms (compile: 3ms, render: 67ms)
+ GET /auth/login 200 in 27ms (compile: 8ms, render: 19ms)
+ GET /auth/register 200 in 22ms (compile: 9ms, render: 14ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query INSERT INTO `main`.`User` (`id`, `email`, `passwordHash`, `name`, `role`, `locale`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `email` AS `email`, `passwordHash` AS `passwordHash`, `name` AS `name`, `avatarUrl` AS `avatarUrl`, `role` AS `role`, `locale` AS `locale`, `timezone` AS `timezone`, `emailVerified` AS `emailVerified`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+ POST /api/auth/register 200 in 809ms (compile: 729ms, render: 80ms)
+ GET / 200 in 53ms (compile: 2ms, render: 51ms)
+ GET /explore 200 in 19ms (compile: 3ms, render: 16ms)
+ GET /checkout?slot=1 200 in 23ms (compile: 3ms, render: 20ms)
+ GET /explore 200 in 14ms (compile: 1997µs, render: 12ms)
+ GET / 200 in 16ms (compile: 2ms, render: 14ms)
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://21.0.11.145:3000
+- Environments: .env
+
+✓ Starting...
+✓ Ready in 1059ms
+ GET / 200 in 2.0s (compile: 1746ms, render: 263ms)
+ GET / 200 in 73ms (compile: 4ms, render: 69ms)
+ GET /auth/register 200 in 169ms (compile: 100ms, render: 69ms)
+ GET /auth/login 200 in 87ms (compile: 29ms, render: 58ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query INSERT INTO `main`.`User` (`id`, `email`, `passwordHash`, `name`, `role`, `locale`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `email` AS `email`, `passwordHash` AS `passwordHash`, `name` AS `name`, `avatarUrl` AS `avatarUrl`, `role` AS `role`, `locale` AS `locale`, `timezone` AS `timezone`, `emailVerified` AS `emailVerified`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+ POST /api/auth/register 200 in 223ms (compile: 172ms, render: 51ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query UPDATE `main`.`User` SET `emailVerified` = ?, `updatedAt` = ? WHERE (`main`.`User`.`id` = ? AND 1=1) RETURNING `id` AS `id`, `email` AS `email`, `passwordHash` AS `passwordHash`, `name` AS `name`, `avatarUrl` AS `avatarUrl`, `role` AS `role`, `locale` AS `locale`, `timezone` AS `timezone`, `emailVerified` AS `emailVerified`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+ POST /api/auth/login 200 in 230ms (compile: 214ms, render: 16ms)
+ GET / 200 in 67ms (compile: 7ms, render: 60ms)
+ GET / 200 in 64ms (compile: 3ms, render: 61ms)
+ GET /auth/login 200 in 40ms (compile: 3ms, render: 37ms)
+ GET /auth/register 200 in 47ms (compile: 3ms, render: 44ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+ POST /api/auth/register 400 in 11ms (compile: 2ms, render: 9ms)
+ GET /auth/login 200 in 15ms (compile: 2ms, render: 13ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query UPDATE `main`.`User` SET `emailVerified` = ?, `updatedAt` = ? WHERE (`main`.`User`.`id` = ? AND 1=1) RETURNING `id` AS `id`, `email` AS `email`, `passwordHash` AS `passwordHash`, `name` AS `name`, `avatarUrl` AS `avatarUrl`, `role` AS `role`, `locale` AS `locale`, `timezone` AS `timezone`, `emailVerified` AS `emailVerified`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+ POST /api/auth/login 200 in 12ms (compile: 3ms, render: 10ms)
+⚠ Blocked cross-origin request from preview-chat-c237887c-8a61-402a-bfad-19d7c7a5a09c.space.z.ai to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / 200 in 229ms (compile: 67ms, render: 162ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query INSERT INTO `main`.`User` (`id`, `email`, `passwordHash`, `name`, `role`, `locale`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `email` AS `email`, `passwordHash` AS `passwordHash`, `name` AS `name`, `avatarUrl` AS `avatarUrl`, `role` AS `role`, `locale` AS `locale`, `timezone` AS `timezone`, `emailVerified` AS `emailVerified`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+ POST /api/auth/register 200 in 11ms (compile: 2ms, render: 9ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`passwordHash`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone`, `main`.`User`.`emailVerified`, `main`.`User`.`createdAt`, `main`.`User`.`updatedAt` FROM `main`.`User` WHERE (`main`.`User`.`email` = ? AND 1=1) LIMIT ? OFFSET ?
+ POST /api/auth/login 200 in 15ms (compile: 3ms, render: 12ms)
+prisma:query UPDATE `main`.`User` SET `emailVerified` = ?, `updatedAt` = ? WHERE (`main`.`User`.`id` = ? AND 1=1) RETURNING `id` AS `id`, `email` AS `email`, `passwordHash` AS `passwordHash`, `name` AS `name`, `avatarUrl` AS `avatarUrl`, `role` AS `role`, `locale` AS `locale`, `timezone` AS `timezone`, `emailVerified` AS `emailVerified`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+ GET /auth/login 200 in 184ms (compile: 60ms, render: 124ms)
+ GET /auth/register 200 in 185ms (compile: 65ms, render: 120ms)
+ GET /dashboard 200 in 180ms (compile: 100ms, render: 80ms)
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://21.0.11.145:3000
+- Environments: .env
+
+✓ Starting...
+✓ Ready in 1023ms
+ GET / 200 in 1807ms (compile: 1555ms, render: 251ms)
+ GET /auth/login 200 in 119ms (compile: 49ms, render: 70ms)
+ GET /auth/register 200 in 126ms (compile: 36ms, render: 90ms)
+ GET /explore 200 in 564ms (compile: 476ms, render: 88ms)
+ GET /auth/login 200 in 45ms (compile: 3ms, render: 42ms)
+ GET /auth/login 200 in 182ms (compile: 74ms, render: 108ms)
+ GET /auth/register 200 in 136ms (compile: 45ms, render: 92ms)
+ GET / 200 in 77ms (compile: 9ms, render: 68ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 248ms (compile: 201ms, render: 47ms)
+ GET /explore 200 in 24ms (compile: 8ms, render: 16ms)
+prisma:query SELECT 1
+ GET /api/auth/me 200 in 9ms (compile: 3ms, render: 7ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET / 200 in 40ms (compile: 1924µs, render: 38ms)
+ GET /explore 200 in 56ms (compile: 1964µs, render: 54ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 7ms (compile: 1784µs, render: 5ms)
+ GET / 200 in 22ms (compile: 3ms, render: 19ms)
+ GET /api/auth/me 200 in 9ms (compile: 1878µs, render: 7ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /dashboard 200 in 190ms (compile: 85ms, render: 105ms)
+ GET / 200 in 55ms (compile: 2ms, render: 53ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 2ms, render: 6ms)
+ GET /categories 404 in 377ms (compile: 347ms, render: 30ms)
+ GET /categories 404 in 66ms (compile: 6ms, render: 59ms)
+ GET /api/auth/me 401 in 7ms (compile: 3ms, render: 4ms)
+ GET / 200 in 63ms (compile: 3ms, render: 60ms)
+ GET /dashboard 200 in 46ms (compile: 4ms, render: 43ms)
+ GET /auth/login 200 in 41ms (compile: 3ms, render: 38ms)
+ GET /auth/register 200 in 34ms (compile: 2ms, render: 32ms)
+ GET /explore 200 in 40ms (compile: 3ms, render: 37ms)
+ GET /checkout 200 in 170ms (compile: 86ms, render: 84ms)
+ HEAD /dashboard 200 in 35ms (compile: 2ms, render: 33ms)
+ GET / 200 in 61ms (compile: 3ms, render: 58ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 1778µs, render: 6ms)
+ GET / 200 in 41ms (compile: 1958µs, render: 39ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 6ms (compile: 1629µs, render: 5ms)
+ GET / 200 in 40ms (compile: 4ms, render: 37ms)
+prisma:query SELECT 1
+ GET /api/auth/me 200 in 7ms (compile: 1925µs, render: 5ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET / 200 in 53ms (compile: 1966µs, render: 51ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 1965µs, render: 6ms)
+ GET /explore 200 in 16ms (compile: 2ms, render: 14ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 3ms, render: 5ms)
+ GET / 200 in 74ms (compile: 4ms, render: 69ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 2ms, render: 6ms)
+ GET /settings 404 in 23ms (compile: 7ms, render: 15ms)
+ GET /settings 404 in 33ms (compile: 4ms, render: 29ms)
+ GET / 200 in 60ms (compile: 3ms, render: 56ms)
+prisma:query SELECT 1
+ GET /api/auth/me 200 in 9ms (compile: 2ms, render: 6ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET / 200 in 47ms (compile: 3ms, render: 44ms)
+ GET / 200 in 45ms (compile: 3ms, render: 43ms)
+ GET /explore 200 in 34ms (compile: 2ms, render: 31ms)
+✓ Compiled in 208ms
+ GET / 200 in 19ms (compile: 3ms, render: 16ms)
+✓ Compiled in 320ms
+ GET / 200 in 47ms (compile: 2ms, render: 44ms)
+ GET /explore 200 in 348ms (compile: 102ms, render: 246ms)
+Persisting failed: Unable to write SST file 00000637.sst
+
+Caused by:
+    No such file or directory (os error 2)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+
+thread 'tokio-runtime-worker' (3815) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <DiskFileSystem as FileSystem>::read (TaskId 137350))
+
+Caused by:
+    0: Looking up data for TaskId 137350 from database failed
+    1: Unable to open static sorted file referenced from 00000636.meta
+    2: Unable to open static sorted file 00000628.sst
+    3: No such file or directory (os error 2)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to /tmp/next-panic-4ca966db6708f94c83272f0b842a302e.log.
+
+To help make Turbopack better, report this error by clicking here: https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20%3CDiskFileSystem%20as%20FileSystem%3E%3A%3Aread%20%28TaskId%20137350%29%29&body=Turbopack%20version%3A%20%60731ace46%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0ATurbopack%20Error%3A%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20%3CDiskFileSystem%20as%20FileSystem%3E%3A%3Aread%20%28TaskId%20137350%29%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for <DiskFileSystem as FileSystem>::read (TaskId 137350))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for <DiskFileSystem as FileSystem>::read (TaskId 137350))
+  
+  Caused by:
+      0: Looking up data for TaskId 137350 from database failed
+      1: Unable to open static sorted file referenced from 00000636.meta
+      2: Unable to open static sorted file 00000628.sst
+      3: No such file or directory (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for <DiskFileSystem as FileSystem>::read (TaskId 137350))) {
+  location: '/build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://21.0.11.145:3000
+- Environments: .env
+
+✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+✓ Ready in 979ms
+ GET / 200 in 3.4s (compile: 3.2s, render: 273ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 320ms (compile: 282ms, render: 38ms)
+ GET / 200 in 63ms (compile: 3ms, render: 60ms)
+ GET /explore 200 in 709ms (compile: 509ms, render: 200ms)
+ GET /dashboard 200 in 431ms (compile: 340ms, render: 92ms)
+ GET /auth/login 200 in 389ms (compile: 317ms, render: 71ms)
+ GET /auth/register 200 in 337ms (compile: 275ms, render: 62ms)
+ GET / 200 in 61ms (compile: 3ms, render: 58ms)
+ GET /api/auth/me 200 in 11ms (compile: 3ms, render: 8ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET / 200 in 57ms (compile: 2ms, render: 54ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 12ms (compile: 3ms, render: 9ms)
+ GET / 200 in 57ms (compile: 2ms, render: 55ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 1951µs, render: 6ms)
+ GET / 200 in 54ms (compile: 1873µs, render: 52ms)
+ GET /api/auth/me 200 in 9ms (compile: 2ms, render: 7ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET / 200 in 52ms (compile: 2ms, render: 50ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 2ms, render: 6ms)
+ GET /explore 200 in 16ms (compile: 2ms, render: 13ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 6ms (compile: 1560µs, render: 5ms)
+ GET /explore 200 in 14ms (compile: 1992µs, render: 12ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+prisma:query SELECT 1
+ GET /api/auth/me 200 in 8ms (compile: 1832µs, render: 6ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /category/ecommerce 404 in 311ms (compile: 292ms, render: 19ms)
+ GET /category/ecommerce 404 in 71ms (compile: 5ms, render: 65ms)
+ GET / 200 in 62ms (compile: 4ms, render: 58ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 9ms (compile: 2ms, render: 7ms)
+ GET / 200 in 61ms (compile: 2ms, render: 59ms)
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 2ms, render: 6ms)
+ GET / 200 in 74ms (compile: 2ms, render: 72ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`User`.`id`, `main`.`User`.`email`, `main`.`User`.`name`, `main`.`User`.`avatarUrl`, `main`.`User`.`role`, `main`.`User`.`locale`, `main`.`User`.`timezone` FROM `main`.`User` WHERE (`main`.`User`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+ GET /api/auth/me 200 in 8ms (compile: 2ms, render: 6ms)
+Persisting failed: Unable to write SST file 00000085.sst
+
+Caused by:
+    No such file or directory (os error 2)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+
+thread 'tokio-runtime-worker' (4546) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Data for resolve (TaskId 149510))
+
+Caused by:
+    0: Looking up data for TaskId 149510 from database failed
+    1: Unable to open static sorted file referenced from 00000076.meta
+    2: Unable to open static sorted file 00000070.sst
+    3: No such file or directory (os error 2)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (4546) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for FileSource::new_with_query_and_fragment (TaskId 149515))
+
+Caused by:
+    0: Looking up data for TaskId 149515 from database failed
+    1: Unable to open static sorted file referenced from 00000075.meta
+    2: Unable to open static sorted file 00000067.sst
+    3: No such file or directory (os error 2)
+○ Compiling /_error ...
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/dashboard/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/dashboard/page/build-manifest.json'
+}
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/explore/page/build-manifest.json'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: ENOENT: no such file or directory, open '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/z/my-project/.next/dev/server/app/page/build-manifest.json'
+}
