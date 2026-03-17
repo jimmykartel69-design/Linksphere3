@@ -10,16 +10,15 @@ import { TOTAL_SLOTS } from '@/lib/constants'
 export async function GET() {
   try {
     const supabase = await getSupabaseServerClient()
-    
-    // Get or create global stats
-    let { data: stats, error } = await supabase
+
+    // Get non-slot counters from global stats (best effort)
+    let { data: stats } = await supabase
       .from('global_stats')
       .select('*')
       .single()
 
-    if (error || !stats) {
-      // Create initial stats if not exists
-      const { data: newStats, error: insertError } = await supabase
+    if (!stats) {
+      const { data: newStats } = await supabase
         .from('global_stats')
         .insert({
           total_slots: TOTAL_SLOTS,
@@ -32,31 +31,31 @@ export async function GET() {
         })
         .select()
         .single()
-
-      if (insertError) {
-        // Return default stats
-        return NextResponse.json({
-          totalSlots: TOTAL_SLOTS,
-          availableSlots: TOTAL_SLOTS,
-          soldSlots: 0,
-          reservedSlots: 0,
-          totalRevenue: 0,
-          totalUsers: 0,
-          totalPurchases: 0,
-        })
-      }
-
       stats = newStats
     }
 
+    const [soldRes, reservedRes, disabledRes] = await Promise.all([
+      supabase.from('slots').select('id', { head: true, count: 'exact' }).eq('status', 'SOLD'),
+      supabase.from('slots').select('id', { head: true, count: 'exact' }).eq('status', 'RESERVED'),
+      supabase.from('slots').select('id', { head: true, count: 'exact' }).eq('status', 'DISABLED'),
+    ])
+
+    const soldSlots = soldRes.count || 0
+    const reservedSlots = reservedRes.count || 0
+    const disabledSlots = disabledRes.count || 0
+    const availableSlots = Math.max(0, TOTAL_SLOTS - soldSlots - reservedSlots - disabledSlots)
+    const occupiedSlots = soldSlots + reservedSlots + disabledSlots
+
     return NextResponse.json({
-      totalSlots: stats.total_slots,
-      availableSlots: stats.available_slots,
-      soldSlots: stats.sold_slots,
-      reservedSlots: stats.reserved_slots,
-      totalRevenue: stats.total_revenue,
-      totalUsers: stats.total_users || 0,
-      totalPurchases: stats.total_purchases || 0,
+      totalSlots: TOTAL_SLOTS,
+      availableSlots,
+      occupiedSlots,
+      soldSlots,
+      reservedSlots,
+      disabledSlots,
+      totalRevenue: stats?.total_revenue || 0,
+      totalUsers: stats?.total_users || 0,
+      totalPurchases: stats?.total_purchases || 0,
     })
   } catch (error) {
     console.error('Error fetching stats:', error)
@@ -64,8 +63,10 @@ export async function GET() {
     return NextResponse.json({
       totalSlots: TOTAL_SLOTS,
       availableSlots: TOTAL_SLOTS,
+      occupiedSlots: 0,
       soldSlots: 0,
       reservedSlots: 0,
+      disabledSlots: 0,
       totalRevenue: 0,
       totalUsers: 0,
       totalPurchases: 0,

@@ -30,6 +30,8 @@ import {
   XCircle,
   Loader2,
   CreditCard,
+  Hash,
+  ExternalLink,
 } from 'lucide-react'
 import { TOTAL_SLOTS, BASE_SLOT_PRICE_EUR, USER_BADGES } from '@/lib/constants'
 import { useTranslation } from '@/i18n/provider'
@@ -58,13 +60,24 @@ const getServerSnapshot = () => false
 // Mock purchase history (will be replaced with real data from API)
 interface Purchase {
   id: string
+  orderNumber?: string
   packName: string
   packSize: number
   amount: number
   currency: string
-  status: 'PENDING' | 'COMPLETED' | 'FAILED' | 'CANCELLED'
+  status: 'PENDING' | 'COMPLETED' | 'FAILED' | 'CANCELLED' | 'REFUNDED'
   createdAt: string
   stripePaymentId?: string
+}
+
+interface OwnedSlot {
+  id: string
+  slot_number: number
+  title: string | null
+  status: 'AVAILABLE' | 'RESERVED' | 'SOLD' | 'DISABLED'
+  view_count: number
+  click_count: number
+  purchased_at: string | null
 }
 
 export default function DashboardPage() {
@@ -84,6 +97,7 @@ export default function DashboardPage() {
     }
   } | null>(null)
   const [purchases, setPurchases] = useState<Purchase[]>([])
+  const [ownedSlots, setOwnedSlots] = useState<OwnedSlot[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [metrics, setMetrics] = useState({ views: 0, clicks: 0 })
 
@@ -126,6 +140,7 @@ export default function DashboardPage() {
               id: p.id,
               packName: p.pack_name || `Pack ${p.pack_size || 1} Slots`,
               packSize: p.pack_size || 1,
+              orderNumber: p.order_number,
               amount: p.amount || 0,
               currency: p.currency || 'EUR',
               status: p.status,
@@ -138,6 +153,7 @@ export default function DashboardPage() {
         if (slotsRes.ok) {
           const slotData = await slotsRes.json()
           const slots = slotData.slots || []
+          setOwnedSlots(slots)
           const views = slots.reduce((sum: number, slot: any) => sum + (slot.view_count || 0), 0)
           const clicks = slots.reduce((sum: number, slot: any) => sum + (slot.click_count || 0), 0)
           setMetrics({ views, clicks })
@@ -286,26 +302,77 @@ export default function DashboardPage() {
 
             {/* My Slots Tab */}
             <TabsContent value="slots" className="space-y-4">
-              <Card className="bg-white/5 border-white/10">
-                <CardContent className="py-12 text-center">
-                  <Globe className="w-12 h-12 text-white/20 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-2">{t('dashboard.slots.empty')}</h3>
-                  <p className="text-white/40 mb-6 max-w-md mx-auto">
-                    {t('home.cta.subtitle')}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button asChild size="lg">
-                      <Link href="/pricing">
-                        <ShoppingCart className="w-4 h-4 mr-2" />
-                        {t('nav.pricing')}
-                      </Link>
-                    </Button>
-                  </div>
-                  <p className="text-white/30 text-sm mt-4">
-                    {formatNumber(TOTAL_SLOTS, locale)} {t('home.counters.slots').toLowerCase()} • €{BASE_SLOT_PRICE_EUR}
-                  </p>
-                </CardContent>
-              </Card>
+              {ownedSlots.length === 0 ? (
+                <Card className="bg-white/5 border-white/10">
+                  <CardContent className="py-12 text-center">
+                    <Globe className="w-12 h-12 text-white/20 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold text-white mb-2">{t('dashboard.slots.empty')}</h3>
+                    <p className="text-white/40 mb-6 max-w-md mx-auto">
+                      {t('home.cta.subtitle')}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <Button asChild size="lg">
+                        <Link href="/pricing">
+                          <ShoppingCart className="w-4 h-4 mr-2" />
+                          {t('nav.pricing')}
+                        </Link>
+                      </Button>
+                    </div>
+                    <p className="text-white/30 text-sm mt-4">
+                      {formatNumber(TOTAL_SLOTS, locale)} {t('home.counters.slots').toLowerCase()} • €{BASE_SLOT_PRICE_EUR}
+                    </p>
+                  </CardContent>
+                </Card>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                  {ownedSlots.map((slot) => (
+                    <Card key={slot.id} className="bg-white/5 border-white/10">
+                      <CardContent className="p-4 space-y-3">
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <p className="text-white font-semibold flex items-center gap-2">
+                              <Hash className="w-4 h-4 text-primary" />
+                              #{formatNumber(slot.slot_number, locale)}
+                            </p>
+                            <p className="text-white/60 text-sm truncate">
+                              {slot.title || 'Marketplace Property'}
+                            </p>
+                          </div>
+                          <Badge
+                            className={
+                              slot.status === 'SOLD'
+                                ? 'bg-blue-500/20 text-blue-300'
+                                : slot.status === 'RESERVED'
+                                ? 'bg-amber-500/20 text-amber-300'
+                                : slot.status === 'DISABLED'
+                                ? 'bg-gray-500/20 text-gray-300'
+                                : 'bg-green-500/20 text-green-300'
+                            }
+                          >
+                            {slot.status}
+                          </Badge>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 text-xs">
+                          <div className="rounded-md bg-white/5 p-2 text-white/60">
+                            <p>{t('dashboard.stats.views')}</p>
+                            <p className="text-white text-sm font-medium">{formatNumber(slot.view_count || 0, locale)}</p>
+                          </div>
+                          <div className="rounded-md bg-white/5 p-2 text-white/60">
+                            <p>{t('dashboard.stats.clicks')}</p>
+                            <p className="text-white text-sm font-medium">{formatNumber(slot.click_count || 0, locale)}</p>
+                          </div>
+                        </div>
+                        <Button variant="outline" className="w-full border-white/15 text-white" asChild>
+                          <Link href={`/explore?slot=${slot.slot_number}`}>
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Open on Planet
+                          </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </TabsContent>
 
             {/* Purchases Tab */}
@@ -345,6 +412,9 @@ export default function DashboardPage() {
                             </div>
                             <div>
                               <p className="text-white font-medium">{purchase.packName}</p>
+                              {purchase.orderNumber && (
+                                <p className="text-white/40 text-xs">Order #{purchase.orderNumber}</p>
+                              )}
                               <p className="text-white/40 text-sm">{formatDate(purchase.createdAt, locale)}</p>
                             </div>
                           </div>

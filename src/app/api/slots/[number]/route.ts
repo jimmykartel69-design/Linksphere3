@@ -5,6 +5,8 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseServerClient } from '@/lib/supabase/server'
+import { BASE_SLOT_PRICE_EUR, TOTAL_SLOTS } from '@/lib/constants'
+import { calculateSlotPosition } from '@/lib/slot-utils'
 
 export async function GET(
   request: NextRequest,
@@ -14,9 +16,9 @@ export async function GET(
     const { number } = await params
     const slotNumber = parseInt(number)
 
-    if (isNaN(slotNumber)) {
+    if (isNaN(slotNumber) || slotNumber < 1 || slotNumber > TOTAL_SLOTS) {
       return NextResponse.json(
-        { error: 'Invalid slot number' },
+        { error: `Invalid slot number. Must be between 1 and ${TOTAL_SLOTS}` },
         { status: 400 }
       )
     }
@@ -33,13 +35,36 @@ export async function GET(
         owner:profiles(id, name, avatar_url)
       `)
       .eq('slot_number', slotNumber)
-      .single()
+      .maybeSingle()
 
-    if (error || !slot) {
-      return NextResponse.json(
-        { error: 'Slot not found' },
-        { status: 404 }
-      )
+    if (error) {
+      return NextResponse.json({ error: 'Failed to fetch slot' }, { status: 500 })
+    }
+
+    // Sparse mode: if slot row does not exist yet, expose it as available.
+    if (!slot) {
+      const coords = calculateSlotPosition(slotNumber)
+      return NextResponse.json({
+        slot: {
+          id: `virtual-${slotNumber}`,
+          slot_number: slotNumber,
+          status: 'AVAILABLE',
+          theta: coords.theta,
+          phi: coords.phi,
+          title: null,
+          description: null,
+          target_url: null,
+          logo_url: null,
+          banner_url: null,
+          category: null,
+          owner: null,
+          purchased_at: null,
+          purchase_price: BASE_SLOT_PRICE_EUR,
+          view_count: 0,
+          click_count: 0,
+        },
+        isVirtual: true,
+      })
     }
 
     // Increment view count best-effort

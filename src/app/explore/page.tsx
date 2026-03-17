@@ -14,7 +14,6 @@ import { Footer } from '@/components/layout/Footer'
 import { SlotStorefront } from '@/components/sphere/SlotStorefront'
 import { SlotSearch } from '@/components/sphere/SlotSearch'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { 
   Globe, 
@@ -79,6 +78,40 @@ function ExploreContent() {
   const [isLoading, setIsLoading] = useState(false)
   const [showSidebar, setShowSidebar] = useState(true)
   const [showStorefront, setShowStorefront] = useState(false)
+  const [stats, setStats] = useState({
+    totalSlots: TOTAL_SLOTS,
+    availableSlots: TOTAL_SLOTS,
+    soldSlots: 0,
+    reservedSlots: 0,
+    disabledSlots: 0,
+  })
+
+  useEffect(() => {
+    let cancelled = false
+    const loadStats = async () => {
+      try {
+        const res = await fetch('/api/stats')
+        if (!res.ok) return
+        const data = await res.json()
+        if (cancelled) return
+        setStats({
+          totalSlots: data.totalSlots || TOTAL_SLOTS,
+          availableSlots: data.availableSlots || 0,
+          soldSlots: data.soldSlots || 0,
+          reservedSlots: data.reservedSlots || 0,
+          disabledSlots: data.disabledSlots || 0,
+        })
+      } catch {
+        // Keep defaults
+      }
+    }
+    loadStats()
+    const intervalId = window.setInterval(loadStats, 30000)
+    return () => {
+      cancelled = true
+      window.clearInterval(intervalId)
+    }
+  }, [])
   
   // Handle slot selection
   const handleSlotSelect = useCallback((slotNumber: number) => {
@@ -90,7 +123,29 @@ function ExploreContent() {
     fetch(`/api/slots/${slotNumber}`)
       .then(res => res.json())
       .then(data => {
-        setSlotData(data.slot || null)
+        if (!data.slot) {
+          setSlotData(null)
+          return
+        }
+
+        const slot = data.slot
+        setSlotData({
+          ...slot,
+          slotNumber: slot.slot_number,
+          targetUrl: slot.target_url,
+          logoUrl: slot.logo_url,
+          bannerUrl: slot.banner_url,
+          purchasedAt: slot.purchased_at,
+          price: slot.purchase_price,
+          viewCount: slot.view_count,
+          clickCount: slot.click_count,
+          owner: slot.owner
+            ? {
+                ...slot.owner,
+                avatarUrl: slot.owner.avatar_url,
+              }
+            : undefined,
+        })
       })
       .catch(() => {
         setSlotData(null)
@@ -152,7 +207,7 @@ function ExploreContent() {
                         LinkSphere
                       </h1>
                       <p className="text-white/50 text-sm">
-                        {t('nav.explore')} {formatNumber(TOTAL_SLOTS)} {t('home.counters.slots').toLowerCase()}
+                        Planet marketplace • {formatNumber(stats.totalSlots)} {t('home.counters.slots').toLowerCase()}
                       </p>
                     </div>
                     <Button
@@ -172,15 +227,19 @@ function ExploreContent() {
                   />
                   
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-3 gap-2">
                     <div className="p-3 rounded-lg bg-white/5 text-center">
-                      <div className="text-lg font-bold text-primary">{formatNumber(TOTAL_SLOTS)}</div>
+                      <div className="text-lg font-bold text-primary">{formatNumber(stats.totalSlots)}</div>
                       <div className="text-xs text-white/50">{t('home.counters.slots')}</div>
                       
                     </div>
                     <div className="p-3 rounded-lg bg-white/5 text-center">
-                      <div className="text-lg font-bold text-green-400">{formatNumber(TOTAL_SLOTS)}</div>
+                      <div className="text-lg font-bold text-green-400">{formatNumber(stats.availableSlots)}</div>
                       <div className="text-xs text-white/50">{t('home.counters.available')}</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-white/5 text-center">
+                      <div className="text-lg font-bold text-blue-400">{formatNumber(stats.soldSlots)}</div>
+                      <div className="text-xs text-white/50">{t('home.counters.sold')}</div>
                     </div>
                   </div>
                   
@@ -189,7 +248,7 @@ function ExploreContent() {
                     <div className="flex items-start gap-2">
                       <Info className="w-4 h-4 text-primary mt-0.5" />
                       <p className="text-xs text-white/70">
-                        {t('explore.subtitle')} - €{BASE_SLOT_PRICE_EUR}
+                        Explore, visit and buy properties on the planet marketplace from €{BASE_SLOT_PRICE_EUR}
                       </p>
                     </div>
                   </div>
@@ -239,7 +298,7 @@ function ExploreContent() {
                   </div>
                   <div>
                     <p className="text-white font-medium">Slot #{formatNumber(selectedSlot)}</p>
-                    <p className="text-white/50 text-xs">{t('slot.title').replace('{number}', formatNumber(selectedSlot))}</p>
+                    <p className="text-white/50 text-xs">Marketplace property</p>
                   </div>
                   <Button size="sm" onClick={() => setShowStorefront(true)}>
                     {t('slot.buyNow')}
@@ -260,12 +319,17 @@ function ExploreContent() {
               </div>
               <div className="h-4 w-px bg-white/20" />
               <div className="flex items-center gap-2 text-sm">
-                <div className="w-2 h-2 rounded-full bg-amber-500" />
+                <div className="w-2 h-2 rounded-full bg-blue-500" />
                 <span className="text-white/60">{t('explore.legend.sold')}</span>
               </div>
               <div className="h-4 w-px bg-white/20" />
+              <div className="flex items-center gap-2 text-sm">
+                <div className="w-2 h-2 rounded-full bg-gray-500" />
+                <span className="text-white/60">Gris / indisponible</span>
+              </div>
+              <div className="h-4 w-px bg-white/20" />
               <div className="text-sm text-white/40">
-                {t('explore.subtitle')}
+                {formatNumber(stats.availableSlots)} free • {formatNumber(stats.soldSlots)} sold • {formatNumber(stats.disabledSlots)} gray
               </div>
             </CardContent>
           </Card>

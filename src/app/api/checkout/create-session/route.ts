@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { getAuthUser, getSupabaseServerClient } from '@/lib/supabase/server'
 import { STRIPE_CONFIG } from '@/lib/config'
+import { TOTAL_SLOTS } from '@/lib/constants'
 
 const PACKS = {
   1: { slots: 1, price: 1, originalPrice: 1, discount: 0, name: 'Slot Unique' },
@@ -9,6 +10,11 @@ const PACKS = {
   50: { slots: 50, price: 40, originalPrice: 50, discount: 20, name: 'Pack 50 Slots' },
   100: { slots: 100, price: 75, originalPrice: 100, discount: 25, name: 'Pack 100 Slots' },
 } as const
+
+function sanitizeMetadataValue(value: unknown, maxLength = 500): string {
+  if (!value) return ''
+  return String(value).slice(0, maxLength)
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,14 +29,38 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json()
     const packSize = Number(body.packSize || 1)
+    const selectedSlotNumber = Number(body.slotNumber || 0)
     const pack = PACKS[packSize as keyof typeof PACKS]
     if (!pack) {
       return NextResponse.json({ error: 'Invalid pack size' }, { status: 400 })
     }
 
+    if (selectedSlotNumber && (selectedSlotNumber < 1 || selectedSlotNumber > TOTAL_SLOTS)) {
+      return NextResponse.json({ error: 'Selected slot is out of range' }, { status: 400 })
+    }
+
     const stripe = new Stripe(STRIPE_CONFIG.secretKey)
     const siteUrl = new URL(request.url).origin
     const supabase = await getSupabaseServerClient()
+
+    if (pack.slots === 1 && selectedSlotNumber) {
+      const { data: selectedSlot, error: selectedSlotError } = await supabase
+        .from('slots')
+        .select('slot_number,status')
+        .eq('slot_number', selectedSlotNumber)
+        .maybeSingle()
+
+      if (selectedSlotError) {
+        return NextResponse.json({ error: selectedSlotError.message }, { status: 500 })
+      }
+
+      if (selectedSlot && (selectedSlot.status === 'SOLD' || selectedSlot.status === 'DISABLED')) {
+        return NextResponse.json(
+          { error: `Slot #${selectedSlotNumber} is no longer available` },
+          { status: 409 }
+        )
+      }
+    }
 
     const { data: purchase, error: purchaseError } = await supabase
       .from('purchases')
@@ -68,6 +98,11 @@ export async function POST(request: NextRequest) {
         pack_name: pack.name,
         original_amount: String(pack.originalPrice),
         discount: String(pack.discount),
+        selected_slot_number: selectedSlotNumber ? String(selectedSlotNumber) : '',
+        template_title: sanitizeMetadataValue(body.title, 120),
+        template_description: sanitizeMetadataValue(body.description, 250),
+        template_target_url: sanitizeMetadataValue(body.targetUrl, 250),
+        template_category_slug: sanitizeMetadataValue(body.categoryId, 80),
       },
       line_items: [
         {
@@ -95,10 +130,10 @@ export async function POST(request: NextRequest) {
       checkoutUrl: session.url,
       amount: pack.price,
       currency: 'EUR',
+      selectedSlotNumber: selectedSlotNumber || null,
     })
   } catch (error) {
     console.error('Create checkout session error:', error)
     return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 })
   }
 }
-

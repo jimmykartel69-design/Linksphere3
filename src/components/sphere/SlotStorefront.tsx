@@ -33,7 +33,7 @@ import { BASE_SLOT_PRICE_EUR, USER_BADGES } from '@/lib/constants'
 interface SlotData {
   id: string
   slotNumber: number
-  status: 'AVAILABLE' | 'SOLD' | 'RESERVED'
+  status: 'AVAILABLE' | 'SOLD' | 'RESERVED' | 'DISABLED'
   title?: string
   description?: string
   targetUrl?: string
@@ -93,6 +93,7 @@ export function SlotStorefront({
   const isAvailable = useMemo(() => !slotData || slotData.status === 'AVAILABLE', [slotData])
   const isSold = useMemo(() => slotData?.status === 'SOLD', [slotData])
   const isReserved = useMemo(() => slotData?.status === 'RESERVED', [slotData])
+  const isDisabled = useMemo(() => slotData?.status === 'DISABLED', [slotData])
   
   // Don't render if no slot selected
   if (!slotNumber) return null
@@ -163,6 +164,11 @@ export function SlotStorefront({
                   {isReserved && (
                     <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
                       Réservé
+                    </Badge>
+                  )}
+                  {isDisabled && (
+                    <Badge className="bg-gray-500/20 text-gray-300 border-gray-500/30">
+                      Gris / Indisponible
                     </Badge>
                   )}
                 </div>
@@ -298,7 +304,7 @@ export function SlotStorefront({
                     #{formatNumber(slotNumber)}
                   </div>
                   <p className="text-white/40 text-xs mt-1">
-                    sur 1,000,000 de slots disponibles
+                    Propriété sur la planète marketplace (1,000,000 emplacements)
                   </p>
                 </div>
               </div>
@@ -329,10 +335,20 @@ export function SlotStorefront({
                   <div className="text-center">
                     <div className="flex items-center justify-center gap-2 text-amber-400 mb-2">
                       <Check className="w-5 h-5" />
-                      Ce slot est déjà occupé
+                      Cette propriété est déjà vendue
                     </div>
                     <Button variant="outline" className="w-full border-white/10 text-white">
                       Chercher un autre slot
+                    </Button>
+                  </div>
+                ) : isDisabled ? (
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-2 text-gray-300 mb-2">
+                      <Sparkles className="w-5 h-5" />
+                      Emplacement grisé, indisponible à l'achat
+                    </div>
+                    <Button variant="outline" className="w-full border-white/10 text-white">
+                      Voir d'autres propriétés
                     </Button>
                   </div>
                 ) : (

@@ -13,15 +13,43 @@ import {
   CTASection, 
   FAQSection 
 } from '@/components/home'
+import { getSupabaseServerClient } from '@/lib/supabase/server'
+import { TOTAL_SLOTS } from '@/lib/constants'
 
-export default function HomePage() {
-  // Initial stats (in production, these would be fetched from the database)
-  const stats = {
-    totalSlots: 1_000_000,
-    availableSlots: 999_850,
-    soldSlots: 150,
-    reservedSlots: 12,
+async function getHomeStats() {
+  try {
+    const supabase = await getSupabaseServerClient()
+    const [soldRes, reservedRes, disabledRes] = await Promise.all([
+      supabase.from('slots').select('id', { head: true, count: 'exact' }).eq('status', 'SOLD'),
+      supabase.from('slots').select('id', { head: true, count: 'exact' }).eq('status', 'RESERVED'),
+      supabase.from('slots').select('id', { head: true, count: 'exact' }).eq('status', 'DISABLED'),
+    ])
+
+    const soldSlots = soldRes.count || 0
+    const reservedSlots = reservedRes.count || 0
+    const disabledSlots = disabledRes.count || 0
+    const lockedSlots = reservedSlots + disabledSlots
+
+    return {
+      totalSlots: TOTAL_SLOTS,
+      soldSlots,
+      reservedSlots: lockedSlots,
+      disabledSlots,
+      availableSlots: Math.max(0, TOTAL_SLOTS - soldSlots - lockedSlots),
+    }
+  } catch {
+    return {
+      totalSlots: TOTAL_SLOTS,
+      soldSlots: 0,
+      reservedSlots: 0,
+      disabledSlots: 0,
+      availableSlots: TOTAL_SLOTS,
+    }
   }
+}
+
+export default async function HomePage() {
+  const stats = await getHomeStats()
 
   return (
     <main className="min-h-screen flex flex-col">
