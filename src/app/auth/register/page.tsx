@@ -14,8 +14,10 @@ import { Separator } from '@/components/ui/separator'
 import { Globe, Loader2, Mail, Lock, User, ArrowLeft, Check, X } from 'lucide-react'
 import { SITE_NAME, MIN_PASSWORD_LENGTH } from '@/lib/constants'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
+import { useTranslation } from '@/i18n/provider'
 
 export default function RegisterPage() {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
   const [error, setError] = useState('')
@@ -50,7 +52,7 @@ export default function RegisterPage() {
       }
       // The user will be redirected to Google, so we don't need to set loading to false
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur de connexion Google')
+      setError(err instanceof Error ? err.message : t('toast.error'))
       setIsGoogleLoading(false)
     }
   }
@@ -59,12 +61,12 @@ export default function RegisterPage() {
     e.preventDefault()
     
     if (!passwordMeetsLength) {
-      setError(`Le mot de passe doit contenir au moins ${MIN_PASSWORD_LENGTH} caractères`)
+      setError(t('form.minLength').replace('{min}', String(MIN_PASSWORD_LENGTH)))
       return
     }
 
     if (!passwordsMatch) {
-      setError('Les mots de passe ne correspondent pas')
+      setError(t('auth.register.passwordMismatch'))
       return
     }
 
@@ -86,7 +88,7 @@ export default function RegisterPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Erreur lors de l\'inscription')
+        throw new Error(data.error || t('toast.failed'))
       }
 
       // Show success message
@@ -97,7 +99,7 @@ export default function RegisterPage() {
         window.location.replace('/')
       }, 1500)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Une erreur est survenue')
+      setError(err instanceof Error ? err.message : t('error.500.message'))
       setIsLoading(false)
     }
   }
@@ -110,11 +112,11 @@ export default function RegisterPage() {
           <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-green-500" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Compte créé!</h1>
-          <p className="text-white/60 mb-4">Bienvenue sur {SITE_NAME}</p>
+          <h1 className="text-2xl font-bold text-white mb-2">{t('auth.register.submit')}</h1>
+          <p className="text-white/60 mb-4">{t('dashboard.welcome').replace('{name}', SITE_NAME)}</p>
           <div className="flex items-center justify-center gap-2 text-white/40">
             <Loader2 className="w-4 h-4 animate-spin" />
-            <span>Redirection en cours...</span>
+            <span>{t('loading.please')}</span>
           </div>
         </div>
       </main>
@@ -131,8 +133,8 @@ export default function RegisterPage() {
               <Globe className="w-7 h-7 text-primary-foreground" />
             </div>
           </Link>
-          <h1 className="text-2xl font-bold text-white">Créer votre compte</h1>
-          <p className="text-white/60 mt-1">Rejoignez {SITE_NAME} et obtenez votre place dans l'univers digital</p>
+          <h1 className="text-2xl font-bold text-white">{t('auth.register.title')}</h1>
+          <p className="text-white/60 mt-1">{t('auth.register.subtitle')}</p>
         </div>
 
         <Card className="bg-white/5 border-white/10">
@@ -174,7 +176,7 @@ export default function RegisterPage() {
                     />
                   </svg>
                 )}
-                Continuer avec Google
+                {t('auth.google.continue')}
               </Button>
 
               <div className="relative">
@@ -182,95 +184,99 @@ export default function RegisterPage() {
                   <Separator className="w-full bg-white/10" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-2 text-white/40">ou</span>
+                  <span className="bg-card px-2 text-white/40">{t('auth.or')}</span>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-white">Nom (optionnel)</Label>
+                <Label htmlFor="name" className="text-white">{t('auth.register.name')}</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
                     id="name"
                     type="text"
-                    placeholder="Votre nom"
+                    placeholder={t('auth.placeholder.name')}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"
+                    autoComplete="name"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-white">Email *</Label>
+                <Label htmlFor="email" className="text-white">{t('auth.register.email')} *</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
                     id="email"
                     type="email"
-                    placeholder="vous@exemple.com"
+                    placeholder={t('auth.placeholder.email')}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"
                     required
                     autoFocus
+                    autoComplete="email"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-white">Mot de passe *</Label>
+                <Label htmlFor="password" className="text-white">{t('auth.register.password')} *</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
                     id="password"
                     type="password"
-                    placeholder={`Min. ${MIN_PASSWORD_LENGTH} caractères`}
+                    placeholder={`${t('form.minLength').replace('{min}', String(MIN_PASSWORD_LENGTH))}`}
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"
                     required
                     minLength={MIN_PASSWORD_LENGTH}
+                    autoComplete="new-password"
                   />
                 </div>
                 {/* Password requirements indicator */}
                 <div className="flex items-center gap-2 text-xs mt-1">
                   <span className={`flex items-center gap-1 ${passwordMeetsLength ? 'text-green-400' : 'text-white/40'}`}>
                     {passwordMeetsLength ? <Check className="w-3 h-3" /> : <X className="w-3 h-3" />}
-                    {MIN_PASSWORD_LENGTH}+ caractères
+                    {t('auth.password.min', { min: MIN_PASSWORD_LENGTH })}
                   </span>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword" className="text-white">Confirmer le mot de passe *</Label>
+                <Label htmlFor="confirmPassword" className="text-white">{t('auth.register.confirmPassword')} *</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
                     id="confirmPassword"
                     type="password"
-                    placeholder="Confirmez votre mot de passe"
+                    placeholder={t('auth.register.confirmPassword')}
                     value={formData.confirmPassword}
                     onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"
                     required
+                    autoComplete="new-password"
                   />
                 </div>
                 {formData.confirmPassword.length > 0 && (
                   <div className="flex items-center gap-2 text-xs mt-1">
                     <span className={`flex items-center gap-1 ${passwordsMatch ? 'text-green-400' : 'text-red-400'}`}>
                       {passwordsMatch ? <Check className="w-3 h-3" /> : <X className="w-3 h-3" />}
-                      Mots de passe identiques
+                      {t('auth.register.confirmPassword')}
                     </span>
                   </div>
                 )}
               </div>
 
               <p className="text-xs text-white/40">
-                En vous inscrivant, vous acceptez nos{' '}
-                <Link href="/terms" className="text-white/60 hover:text-white">Conditions d'utilisation</Link>
-                {' '}et notre{' '}
-                <Link href="/privacy" className="text-white/60 hover:text-white">Politique de confidentialité</Link>.
+                {t('auth.register.legalPrefix')}{' '}
+                <Link href="/terms" className="text-white/60 hover:text-white">{t('footer.terms')}</Link>
+                {' '} {t('auth.register.legalAnd')} {' '}
+                <Link href="/privacy" className="text-white/60 hover:text-white">{t('footer.privacy')}</Link>.
               </p>
 
               <Button 
@@ -281,10 +287,10 @@ export default function RegisterPage() {
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Création du compte...
+                    {t('loading')}
                   </>
                 ) : (
-                  'Créer le compte'
+                  t('auth.register.submit')
                 )}
               </Button>
             </CardContent>
@@ -293,9 +299,9 @@ export default function RegisterPage() {
           <CardFooter className="flex flex-col gap-4 pt-0">
             <Separator className="bg-white/10" />
             <p className="text-white/60 text-sm text-center">
-              Déjà un compte?{' '}
+              {t('auth.register.hasAccount')}{' '}
               <Link href="/auth/login" className="text-primary hover:underline">
-                Se connecter
+                {t('auth.register.signIn')}
               </Link>
             </p>
           </CardFooter>
@@ -304,7 +310,7 @@ export default function RegisterPage() {
         <div className="mt-6 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm">
             <ArrowLeft className="w-4 h-4" />
-            Retour à l'accueil
+            {t('error.backHome')}
           </Link>
         </div>
       </div>

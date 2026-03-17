@@ -2,7 +2,6 @@
   "site.name": "LinkSphere",
   "site.tagline": "Prenez place dans l'univers numérique",
   "site.description": "LinkSphere est une plateforme de visibilité numérique où vous pouvez prendre votre place dans l'univers numérique. Achetez des emplacements sponsorisés sur notre sphère 3D interactive.",
-
   "nav.home": "Accueil",
   "nav.explore": "Explorer",
   "nav.categories": "Catégories",
@@ -13,17 +12,14 @@
   "nav.profile": "Profil",
   "nav.settings": "Paramètres",
   "nav.admin": "Admin",
-
   "home.hero.title": "Prenez Place dans l'Univers Numérique",
   "home.hero.subtitle": "Rejoignez des milliers de marques et créateurs qui ont sécurisé leur place sur la plateforme numérique la plus innovante au monde.",
   "home.hero.cta.explore": "Explorer la Sphère",
   "home.hero.cta.buy": "Obtenir un Emplacement",
-
   "home.counters.slots": "Emplacements Totaux",
   "home.counters.available": "Disponibles",
   "home.counters.sold": "Réservés",
   "home.counters.reserved": "En attente",
-
   "home.features.title": "Pourquoi LinkSphere ?",
   "home.features.visibility.title": "Visibilité Numérique",
   "home.features.visibility.desc": "Sécurisez votre place permanente dans le paysage numérique. Votre présence, vos règles.",
@@ -33,14 +29,11 @@
   "home.features.permanent.desc": "Une fois que vous possédez un emplacement, il est à vous pour toujours. Pas de renouvellement, pas d'expiration.",
   "home.features.analytics.title": "Analyses Intégrées",
   "home.features.analytics.desc": "Suivez les vues, les clics et l'engagement de votre présence numérique.",
-
   "home.cta.title": "Prêt à Prendre Votre Place ?",
   "home.cta.subtitle": "Rejoignez la révolution numérique. Sécurisez votre emplacement aujourd'hui.",
   "home.cta.button": "Parcourir les Emplacements Disponibles",
-
   "home.featured.title": "Récemment Réservés",
   "home.featured.empty": "Aucun emplacement réservé. Soyez le premier !",
-
   "explore.title": "Explorer la Sphère",
   "explore.subtitle": "Naviguez dans l'univers 3D et découvrez les emplacements",
   "explore.search.placeholder": "Rechercher par numéro, nom ou mot-clé...",
@@ -62,7 +55,6 @@
   "explore.tooltip.slot": "Emplacement #{number}",
   "explore.tooltip.status": "Statut: {status}",
   "explore.tooltip.price": "À partir de {price} €",
-
   "slot.title": "Emplacement #{number}",
   "slot.ownedBy": "Appartient à",
   "slot.available": "Disponible à l'achat",
@@ -84,11 +76,9 @@
   "slot.related": "Emplacements associés",
   "slot.verified": "Vérifié",
   "slot.pending": "En attente de vérification",
-
   "category.title": "Catégorie : {name}",
   "category.slots.count": "{count} emplacements",
   "category.empty": "Aucun emplacement dans cette catégorie",
-
   "auth.login.title": "Se connecter",
   "auth.login.subtitle": "Bienvenue sur LinkSphere",
   "auth.login.email": "Email",
@@ -98,7 +88,6 @@
   "auth.login.submit": "Se connecter",
   "auth.login.noAccount": "Pas encore de compte ?",
   "auth.login.signUp": "S'inscrire",
-
   "auth.register.title": "Créer un compte",
   "auth.register.subtitle": "Rejoignez l'univers numérique",
   "auth.register.email": "Email",
@@ -108,13 +97,11 @@
   "auth.register.submit": "Créer le compte",
   "auth.register.hasAccount": "Vous avez déjà un compte ?",
   "auth.register.signIn": "Se connecter",
-
   "auth.forgot.title": "Réinitialiser le mot de passe",
   "auth.forgot.subtitle": "Entrez votre email pour recevoir un lien de réinitialisation",
   "auth.forgot.email": "Email",
   "auth.forgot.submit": "Envoyer le lien",
   "auth.forgot.back": "Retour à la connexion",
-
   "dashboard.title": "Tableau de bord",
   "dashboard.welcome": "Bienvenue, {name} !",
   "dashboard.stats.slots": "Vos emplacements",
@@ -132,7 +119,6 @@
   "dashboard.settings.emailNotifications": "Notifications par email",
   "dashboard.settings.marketingEmails": "Emails marketing",
   "dashboard.settings.save": "Enregistrer",
-
   "checkout.title": "Paiement",
   "checkout.slots": "Emplacements sélectionnés",
   "checkout.summary": "Récapitulatif",
@@ -147,7 +133,6 @@
   "checkout.cancel.title": "Paiement annulé",
   "checkout.cancel.message": "Votre paiement a été annulé. Vos emplacements sont encore réservés pour une durée limitée.",
   "checkout.cancel.retry": "Réessayer",
-
   "admin.title": "Tableau de bord Admin",
   "admin.nav.overview": "Vue d'ensemble",
   "admin.nav.slots": "Emplacements",
@@ -164,20 +149,17 @@
   "admin.moderation.approve": "Approuver",
   "admin.moderation.reject": "Rejeter",
   "admin.moderation.flag": "Signaler pour vérification",
-
   "footer.about": "À propos",
   "footer.faq": "FAQ",
   "footer.terms": "Conditions d'utilisation",
   "footer.privacy": "Politique de confidentialité",
   "footer.contact": "Contact",
   "footer.rights": "Tous droits réservés.",
-
   "about.title": "À propos de LinkSphere",
   "about.mission.title": "Notre Mission",
   "about.mission.text": "LinkSphere est une plateforme de visibilité numérique qui permet aux individus et aux entreprises de prendre leur place dans l'univers numérique. Nous construisons un monument numérique permanent et mondial où votre présence dure éternellement.",
   "about.howItWorks.title": "Comment ça fonctionne",
   "about.howItWorks.text": "Choisissez parmi 1 000 000 d'emplacements sur notre sphère 3D. Chaque emplacement représente un placement numérique permanent que vous pouvez personnaliser avec votre image de marque, vos liens et votre message.",
-
   "faq.title": "Questions fréquemment posées",
   "faq.whatIsSlot.q": "Qu'est-ce qu'un emplacement ?",
   "faq.whatIsSlot.a": "Un emplacement est un espace numérique permanent sur notre sphère 3D. Chaque emplacement peut être personnalisé avec votre logo, titre, description et un lien vers votre site web ou projet.",
@@ -189,21 +171,17 @@
   "faq.refund.a": "En raison de la nature permanente de la propriété d'un emplacement, les remboursements ne sont pas disponibles après l'achat.",
   "faq.payment.q": "Quels modes de paiement acceptez-vous ?",
   "faq.payment.a": "Nous acceptons toutes les principales cartes de crédit via Stripe. PayPal et les paiements crypto pourront être ajoutés ultérieurement.",
-
   "terms.title": "Conditions d'utilisation",
   "privacy.title": "Politique de confidentialité",
   "contact.title": "Nous contacter",
-
   "error.404.title": "Page non trouvée",
   "error.404.message": "La page que vous recherchez n'existe pas.",
   "error.500.title": "Une erreur s'est produite",
   "error.500.message": "Une erreur est survenue. Veuillez réessayer plus tard.",
   "error.backHome": "Retour à l'accueil",
-
   "loading": "Chargement...",
   "loading.more": "Charger plus",
   "loading.please": "Veuillez patienter...",
-
   "button.save": "Enregistrer",
   "button.cancel": "Annuler",
   "button.delete": "Supprimer",
@@ -216,21 +194,47 @@
   "button.search": "Rechercher",
   "button.clear": "Effacer",
   "button.reset": "Réinitialiser",
-
   "form.required": "Ce champ est requis",
   "form.invalid.email": "Veuillez entrer un email valide",
   "form.invalid.url": "Veuillez entrer une URL valide",
   "form.minLength": "Minimum {min} caractères requis",
   "form.maxLength": "Maximum {max} caractères autorisés",
-
   "toast.success": "Succès",
   "toast.error": "Erreur",
   "toast.saved": "Modifications enregistrées",
   "toast.failed": "L'opération a échoué. Veuillez réessayer.",
-
   "meta.title.default": "LinkSphere - Prenez place dans l'univers numérique",
   "meta.title.template": "{title} | LinkSphere",
   "meta.description.default": "LinkSphere est une plateforme de visibilité numérique où vous pouvez prendre votre place dans l'univers numérique. Achetez des emplacements sponsorisés sur notre sphère 3D interactive.",
   "meta.og.title": "LinkSphere - Plateforme d'Univers Numérique",
-  "meta.og.description": "Prenez votre place permanente dans l'univers numérique. Rejoignez des milliers de marques sur notre plateforme 3D."
+  "meta.og.description": "Prenez votre place permanente dans l'univers numérique. Rejoignez des milliers de marques sur notre plateforme 3D.",
+  "nav.pricing": "Tarifs",
+  "footer.explore": "Explorer",
+  "footer.explorer3d": "Explorateur 3D",
+  "footer.searchSlots": "Rechercher des emplacements",
+  "footer.featured": "A la une",
+  "footer.legal": "Mentions legales",
+  "footer.cookies": "Politique des cookies",
+  "auth.google.continue": "Continuer avec Google",
+  "auth.or": "ou",
+  "auth.placeholder.email": "vous@exemple.com",
+  "auth.placeholder.name": "Votre nom",
+  "auth.register.passwordMismatch": "Les mots de passe ne correspondent pas",
+  "auth.password.min": "{min}+ caracteres",
+  "auth.register.legalPrefix": "En creant un compte, vous acceptez",
+  "auth.register.legalAnd": "et",
+  "dashboard.purchases.invoiceNote": "Les factures sont envoyees automatiquement par email apres chaque achat. Consultez votre boite mail pour acceder a vos factures Stripe.",
+  "dashboard.settings.name": "Nom",
+  "dashboard.slots.owned": "emplacements possedes",
+  "settings.save.error": "Impossible de sauvegarder votre profil.",
+  "settings.save.retry": "Veuillez reessayer.",
+  "pricing.from": "A partir de",
+  "category.technology": "Technologie",
+  "category.ecommerce": "E-commerce",
+  "category.business": "Business",
+  "category.creative": "Creatif",
+  "category.gaming": "Gaming",
+  "category.education": "Education",
+  "category.health": "Sante",
+  "category.travel": "Voyage"
 }

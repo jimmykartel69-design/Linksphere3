@@ -32,15 +32,16 @@ import {
   CreditCard,
 } from 'lucide-react'
 import { TOTAL_SLOTS, BASE_SLOT_PRICE_EUR, USER_BADGES } from '@/lib/constants'
+import { useTranslation } from '@/i18n/provider'
 
 // Format number
-function formatNumber(num: number): string {
-  return num.toLocaleString('fr-FR')
+function formatNumber(num: number, locale = 'en'): string {
+  return num.toLocaleString(locale)
 }
 
 // Format date
-function formatDate(date: Date | string): string {
-  return new Date(date).toLocaleDateString('fr-FR', {
+function formatDate(date: Date | string, locale = 'en'): string {
+  return new Date(date).toLocaleDateString(locale, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -67,11 +68,13 @@ interface Purchase {
 }
 
 export default function DashboardPage() {
+  const { t } = useTranslation()
   const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
   const [user, setUser] = useState<{
     id: string
     email: string
     name: string | null
+    locale?: string
     badge: string
     slotCount: number
     badgeInfo?: {
@@ -155,6 +158,7 @@ export default function DashboardPage() {
   }
 
   const badgeDisplay = user ? getBadgeDisplay(user.badge) : null
+  const locale = user?.locale || 'en'
   const totalViews = metrics.views
   const totalClicks = metrics.clicks
 
@@ -181,7 +185,7 @@ export default function DashboardPage() {
             <div>
               <div className="flex items-center gap-3 mb-1">
                 <h1 className="text-3xl font-bold text-white">
-                  {mounted && user ? `Bienvenue, ${user.name || user.email.split('@')[0]}!` : 'Dashboard'}
+                  {mounted && user ? `${t('dashboard.welcome').replace('{name}', user.name || user.email.split('@')[0])}` : t('nav.dashboard')}
                 </h1>
                 {badgeDisplay && (
                   <Badge 
@@ -195,12 +199,12 @@ export default function DashboardPage() {
                   </Badge>
                 )}
               </div>
-              <p className="text-white/60">Gérez vos slots et suivez vos performances</p>
+              <p className="text-white/60">{t('dashboard.analytics.title')}</p>
             </div>
             <Button asChild>
               <Link href="/explore">
                 <Plus className="w-4 h-4 mr-2" />
-                Acheter des Slots
+                {t('home.cta.button')}
               </Link>
             </Button>
           </div>
@@ -215,7 +219,7 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <p className="text-3xl font-bold text-white">{user?.slotCount || 0}</p>
-                    <p className="text-white/40 text-sm">Slots Possédés</p>
+                    <p className="text-white/40 text-sm">{t('dashboard.stats.slots')}</p>
                   </div>
                 </div>
               </CardContent>
@@ -228,8 +232,8 @@ export default function DashboardPage() {
                     <Eye className="w-6 h-6 text-blue-500" />
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-white">{formatNumber(totalViews)}</p>
-                    <p className="text-white/40 text-sm">Vues Totales</p>
+                    <p className="text-3xl font-bold text-white">{formatNumber(totalViews, locale)}</p>
+                    <p className="text-white/40 text-sm">{t('dashboard.stats.views')}</p>
                   </div>
                 </div>
               </CardContent>
@@ -242,8 +246,8 @@ export default function DashboardPage() {
                     <MousePointer className="w-6 h-6 text-green-500" />
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-white">{formatNumber(totalClicks)}</p>
-                    <p className="text-white/40 text-sm">Clics Totaux</p>
+                    <p className="text-3xl font-bold text-white">{formatNumber(totalClicks, locale)}</p>
+                    <p className="text-white/40 text-sm">{t('dashboard.stats.clicks')}</p>
                   </div>
                 </div>
               </CardContent>
@@ -257,7 +261,7 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <p className="text-3xl font-bold text-white">{totalViews > 0 ? ((totalClicks / totalViews) * 100).toFixed(1) : 0}%</p>
-                    <p className="text-white/40 text-sm">Taux de Clic</p>
+                    <p className="text-white/40 text-sm">{t('dashboard.stats.ctr')}</p>
                   </div>
                 </div>
               </CardContent>
@@ -269,14 +273,14 @@ export default function DashboardPage() {
             <TabsList className="bg-white/5 border border-white/10">
               <TabsTrigger value="slots" className="data-[state=active]:bg-white/10">
                 <Globe className="w-4 h-4 mr-2" />
-                Mes Slots
+                {t('dashboard.slots.title')}
               </TabsTrigger>
               <TabsTrigger value="purchases" className="data-[state=active]:bg-white/10">
                 <Receipt className="w-4 h-4 mr-2" />
-                Achats
+                {t('checkout.title')}
               </TabsTrigger>
               <TabsTrigger value="settings" className="data-[state=active]:bg-white/10">
-                Paramètres
+                {t('nav.settings')}
               </TabsTrigger>
             </TabsList>
 
@@ -285,20 +289,20 @@ export default function DashboardPage() {
               <Card className="bg-white/5 border-white/10">
                 <CardContent className="py-12 text-center">
                   <Globe className="w-12 h-12 text-white/20 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-2">Aucun slot pour le moment</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">{t('dashboard.slots.empty')}</h3>
                   <p className="text-white/40 mb-6 max-w-md mx-auto">
-                    Achetez votre premier slot sur LinkSphere pour avoir votre place permanente dans l'univers digital
+                    {t('home.cta.subtitle')}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Button asChild size="lg">
                       <Link href="/pricing">
                         <ShoppingCart className="w-4 h-4 mr-2" />
-                        Voir les Tarifs
+                        {t('nav.pricing')}
                       </Link>
                     </Button>
                   </div>
                   <p className="text-white/30 text-sm mt-4">
-                    {formatNumber(TOTAL_SLOTS)} slots disponibles • À partir de €{BASE_SLOT_PRICE_EUR}
+                    {formatNumber(TOTAL_SLOTS, locale)} {t('home.counters.slots').toLowerCase()} • €{BASE_SLOT_PRICE_EUR}
                   </p>
                 </CardContent>
               </Card>
@@ -310,21 +314,21 @@ export default function DashboardPage() {
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
                     <Receipt className="w-5 h-5" />
-                    Historique des Achats
+                    {t('checkout.summary')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   {purchases.length === 0 ? (
                     <div className="py-12 text-center">
                       <Package className="w-12 h-12 text-white/20 mx-auto mb-4" />
-                      <h3 className="text-lg font-semibold text-white mb-2">Aucun achat</h3>
+                      <h3 className="text-lg font-semibold text-white mb-2">{t('explore.results.empty')}</h3>
                       <p className="text-white/40 mb-6">
-                        Vos achats apparaîtront ici après votre première transaction
+                        {t('dashboard.analytics.title')}
                       </p>
                       <Button asChild>
                         <Link href="/pricing">
                           <CreditCard className="w-4 h-4 mr-2" />
-                          Acheter des Slots
+                          {t('home.cta.button')}
                         </Link>
                       </Button>
                     </div>
@@ -341,7 +345,7 @@ export default function DashboardPage() {
                             </div>
                             <div>
                               <p className="text-white font-medium">{purchase.packName}</p>
-                              <p className="text-white/40 text-sm">{formatDate(purchase.createdAt)}</p>
+                              <p className="text-white/40 text-sm">{formatDate(purchase.createdAt, locale)}</p>
                             </div>
                           </div>
                           <div className="text-right">
@@ -371,10 +375,9 @@ export default function DashboardPage() {
                 <div className="flex items-start gap-3">
                   <CreditCard className="w-5 h-5 text-blue-400 mt-0.5" />
                   <div>
-                    <p className="text-blue-400 font-medium">Gestion des factures</p>
+                    <p className="text-blue-400 font-medium">{t('checkout.secure')}</p>
                     <p className="text-blue-400/70 text-sm">
-                      Les factures sont envoyées automatiquement par email après chaque achat. 
-                      Pour accéder à vos factures Stripe, connectez-vous à votre compte email.
+                      {t('dashboard.purchases.invoiceNote')}
                     </p>
                   </div>
                 </div>
@@ -385,7 +388,7 @@ export default function DashboardPage() {
             <TabsContent value="settings">
               <Card className="bg-white/5 border-white/10">
                 <CardHeader>
-                  <CardTitle className="text-white">Paramètres du Compte</CardTitle>
+                  <CardTitle className="text-white">{t('dashboard.settings.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
@@ -397,7 +400,7 @@ export default function DashboardPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-white">Nom</Label>
+                    <Label className="text-white">{t('dashboard.settings.name')}</Label>
                     <Input
                       value={user?.name || '—'}
                       disabled
@@ -409,7 +412,7 @@ export default function DashboardPage() {
                   {/* Badge info */}
                   {badgeDisplay && (
                     <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                      <Label className="text-white mb-2 block">Votre Badge</Label>
+                      <Label className="text-white mb-2 block">{t('nav.profile')}</Label>
                       <div className="flex items-center gap-3">
                         <Badge 
                           className="text-base px-3 py-1"
@@ -421,11 +424,11 @@ export default function DashboardPage() {
                           {badgeDisplay.icon} {badgeDisplay.name}
                         </Badge>
                         <span className="text-white/40 text-sm">
-                          ({user?.slotCount || 0} slots)
+                          ({user?.slotCount || 0} {t('home.counters.slots').toLowerCase()})
                         </span>
                       </div>
                       <p className="text-white/40 text-sm mt-2">
-                        Achetez plus de slots pour débloquer des badges supérieurs!
+                        {t('home.cta.subtitle')}
                       </p>
                     </div>
                   )}
@@ -433,7 +436,7 @@ export default function DashboardPage() {
                   <Separator className="bg-white/10" />
                   
                   <Button variant="outline" className="border-white/10 text-white">
-                    Modifier le Profil
+                    {t('button.edit')}
                   </Button>
                 </CardContent>
               </Card>

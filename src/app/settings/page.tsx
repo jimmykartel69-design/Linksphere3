@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label'
 import { Loader2, ArrowLeft, Save } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import { useTranslation } from '@/i18n/provider'
+import { LOCALE_NAMES, SUPPORTED_LOCALES } from '@/lib/constants'
 
 interface SettingsUser {
   id: string
@@ -74,8 +75,8 @@ export default function SettingsPage() {
       const data = await res.json()
       if (!res.ok) {
         toast({
-          title: 'Erreur',
-          description: data.error || 'Impossible de sauvegarder',
+          title: t('toast.error'),
+          description: data.error || t('settings.save.error'),
           variant: 'destructive',
         })
         return
@@ -91,8 +92,8 @@ export default function SettingsPage() {
       })
     } catch {
       toast({
-        title: 'Erreur réseau',
-        description: 'Veuillez réessayer.',
+        title: t('toast.error'),
+        description: t('settings.save.retry'),
         variant: 'destructive',
       })
     } finally {
@@ -134,14 +135,14 @@ export default function SettingsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-white">Nom</Label>
-                <Input
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Votre nom"
-                />
+                <Label htmlFor="name" className="text-white">{t('dashboard.settings.name')}</Label>
+                  <Input
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="bg-white/5 border-white/10 text-white"
+                    placeholder={t('auth.placeholder.name')}
+                  />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -153,10 +154,11 @@ export default function SettingsPage() {
                     onChange={(e) => setLocale(e.target.value)}
                     className="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white"
                   >
-                    <option value="en" style={{ color: '#111', backgroundColor: '#fff' }}>English</option>
-                    <option value="fr" style={{ color: '#111', backgroundColor: '#fff' }}>Français</option>
-                    <option value="es" style={{ color: '#111', backgroundColor: '#fff' }}>Español</option>
-                    <option value="de" style={{ color: '#111', backgroundColor: '#fff' }}>Deutsch</option>
+                    {SUPPORTED_LOCALES.map((loc) => (
+                      <option key={loc} value={loc} style={{ color: '#111', backgroundColor: '#fff' }}>
+                        {LOCALE_NAMES[loc]}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

@@ -17,6 +17,7 @@ import {
   Plane,
   MoreHorizontal
 } from 'lucide-react'
+import { useTranslation } from '@/i18n/provider'
 
 // Format number with consistent locale (en-US) to avoid hydration mismatch
 function formatNumber(num: number): string {
@@ -24,26 +25,28 @@ function formatNumber(num: number): string {
 }
 
 const categories = [
-  { name: 'Technology', icon: Code, slug: 'technology', color: 'from-blue-500 to-cyan-500', count: 1250 },
-  { name: 'E-Commerce', icon: ShoppingBag, slug: 'ecommerce', color: 'from-green-500 to-emerald-500', count: 890 },
-  { name: 'Business', icon: Building2, slug: 'business', color: 'from-purple-500 to-violet-500', count: 720 },
-  { name: 'Creative', icon: Palette, slug: 'creative', color: 'from-pink-500 to-rose-500', count: 650 },
-  { name: 'Gaming', icon: Gamepad2, slug: 'gaming', color: 'from-red-500 to-orange-500', count: 540 },
-  { name: 'Education', icon: GraduationCap, slug: 'education', color: 'from-yellow-500 to-amber-500', count: 430 },
-  { name: 'Health', icon: Heart, slug: 'health', color: 'from-emerald-500 to-teal-500', count: 380 },
-  { name: 'Travel', icon: Plane, slug: 'travel', color: 'from-sky-500 to-blue-500', count: 290 },
-]
+  { nameKey: 'category.technology', icon: Code, slug: 'technology', color: 'from-blue-500 to-cyan-500', count: 1250 },
+  { nameKey: 'category.ecommerce', icon: ShoppingBag, slug: 'ecommerce', color: 'from-green-500 to-emerald-500', count: 890 },
+  { nameKey: 'category.business', icon: Building2, slug: 'business', color: 'from-purple-500 to-violet-500', count: 720 },
+  { nameKey: 'category.creative', icon: Palette, slug: 'creative', color: 'from-pink-500 to-rose-500', count: 650 },
+  { nameKey: 'category.gaming', icon: Gamepad2, slug: 'gaming', color: 'from-red-500 to-orange-500', count: 540 },
+  { nameKey: 'category.education', icon: GraduationCap, slug: 'education', color: 'from-yellow-500 to-amber-500', count: 430 },
+  { nameKey: 'category.health', icon: Heart, slug: 'health', color: 'from-emerald-500 to-teal-500', count: 380 },
+  { nameKey: 'category.travel', icon: Plane, slug: 'travel', color: 'from-sky-500 to-blue-500', count: 290 },
+] as const
 
 export function CategoriesSection() {
+  const { t } = useTranslation()
+
   return (
     <section id="categories" className="py-24 bg-gradient-to-b from-black to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Explore by Category
+            {t('nav.categories')}
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Discover slots across various industries and interests
+            {t('explore.subtitle')}
           </p>
         </div>
 
@@ -60,8 +63,8 @@ export function CategoriesSection() {
               </div>
               
               {/* Content */}
-              <h3 className="text-white font-medium mb-1">{category.name}</h3>
-              <p className="text-white/40 text-sm">{formatNumber(category.count)} slots</p>
+              <h3 className="text-white font-medium mb-1">{t(category.nameKey)}</h3>
+              <p className="text-white/40 text-sm">{formatNumber(category.count)} {t('home.counters.slots').toLowerCase()}</p>
             </Link>
           ))}
           
@@ -73,7 +76,7 @@ export function CategoriesSection() {
             <div className="text-center">
               <MoreHorizontal className="w-8 h-8 text-white/50 mx-auto mb-2 group-hover:text-white/70 transition-colors" />
               <span className="text-white/50 text-sm group-hover:text-white/70 transition-colors">
-                View All
+                {t('loading.more')}
               </span>
             </div>
           </Link>

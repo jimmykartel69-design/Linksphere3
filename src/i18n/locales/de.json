@@ -2,7 +2,6 @@
   "site.name": "LinkSphere",
   "site.tagline": "Erobern Sie Ihren Platz im digitalen Universum",
   "site.description": "LinkSphere ist eine digitale Sichtbarkeitsplattform, auf der Sie Ihren Platz im digitalen Universum einnehmen können. Kaufen Sie gesponserte Slots auf unserer interaktiven 3D-Sphäre.",
-
   "nav.home": "Startseite",
   "nav.explore": "Erkunden",
   "nav.categories": "Kategorien",
@@ -13,17 +12,14 @@
   "nav.profile": "Profil",
   "nav.settings": "Einstellungen",
   "nav.admin": "Admin",
-
   "home.hero.title": "Erobern Sie Ihren Platz im Digitalen Universum",
   "home.hero.subtitle": "Schließen Sie sich Tausenden von Marken und Kreativen an, die ihren Platz auf der innovativsten digitalen Plattform der Welt gesichert haben.",
   "home.hero.cta.explore": "Sphäre erkunden",
   "home.hero.cta.buy": "Slot sichern",
-
   "home.counters.slots": "Gesamte Slots",
   "home.counters.available": "Verfügbar",
   "home.counters.sold": "Vergeben",
   "home.counters.reserved": "Reserviert",
-
   "home.features.title": "Warum LinkSphere?",
   "home.features.visibility.title": "Digitale Sichtbarkeit",
   "home.features.visibility.desc": "Sichern Sie sich Ihren permanenten Platz in der digitalen Landschaft. Ihre Präsenz, Ihre Regeln.",
@@ -33,14 +29,11 @@
   "home.features.permanent.desc": "Sobald Sie einen Slot besitzen, gehört er Ihnen für immer. Keine Verlängerungen, kein Ablaufdatum.",
   "home.features.analytics.title": "Integrierte Analysen",
   "home.features.analytics.desc": "Verfolgen Sie Aufrufe, Klicks und Engagement Ihrer digitalen Präsenz.",
-
   "home.cta.title": "Bereit, Ihren Platz zu sichern?",
   "home.cta.subtitle": "Werden Sie Teil der digitalen Revolution. Sichern Sie Ihren Slot noch heute.",
   "home.cta.button": "Verfügbare Slots durchsuchen",
-
   "home.featured.title": "Kürzlich vergeben",
   "home.featured.empty": "Noch keine Slots vergeben. Seien Sie der Erste!",
-
   "explore.title": "Sphäre erkunden",
   "explore.subtitle": "Navigieren Sie durch das 3D-Universum und entdecken Sie Slots",
   "explore.search.placeholder": "Suche nach Slot-Nummer, Name oder Schlagwort...",
@@ -62,7 +55,6 @@
   "explore.tooltip.slot": "Slot #{number}",
   "explore.tooltip.status": "Status: {status}",
   "explore.tooltip.price": "Ab {price} €",
-
   "slot.title": "Slot #{number}",
   "slot.ownedBy": "Inhaber",
   "slot.available": "Zum Kauf verfügbar",
@@ -84,11 +76,9 @@
   "slot.related": "Ähnliche Slots",
   "slot.verified": "Verifiziert",
   "slot.pending": "Überprüfung ausstehend",
-
   "category.title": "Kategorie: {name}",
   "category.slots.count": "{count} Slots",
   "category.empty": "Noch keine Slots in dieser Kategorie",
-
   "auth.login.title": "Anmelden",
   "auth.login.subtitle": "Willkommen zurück bei LinkSphere",
   "auth.login.email": "E-Mail",
@@ -98,7 +88,6 @@
   "auth.login.submit": "Anmelden",
   "auth.login.noAccount": "Noch kein Konto?",
   "auth.login.signUp": "Registrieren",
-
   "auth.register.title": "Konto erstellen",
   "auth.register.subtitle": "Werden Sie Teil des digitalen Universums",
   "auth.register.email": "E-Mail",
@@ -108,13 +97,11 @@
   "auth.register.submit": "Konto erstellen",
   "auth.register.hasAccount": "Haben Sie bereits ein Konto?",
   "auth.register.signIn": "Anmelden",
-
   "auth.forgot.title": "Passwort zurücksetzen",
   "auth.forgot.subtitle": "Geben Sie Ihre E-Mail ein, um einen Reset-Link zu erhalten",
   "auth.forgot.email": "E-Mail",
   "auth.forgot.submit": "Reset-Link senden",
   "auth.forgot.back": "Zurück zur Anmeldung",
-
   "dashboard.title": "Dashboard",
   "dashboard.welcome": "Willkommen zurück, {name}!",
   "dashboard.stats.slots": "Ihre Slots",
@@ -132,7 +119,6 @@
   "dashboard.settings.emailNotifications": "E-Mail-Benachrichtigungen",
   "dashboard.settings.marketingEmails": "Marketing-E-Mails",
   "dashboard.settings.save": "Änderungen speichern",
-
   "checkout.title": "Bezahlung",
   "checkout.slots": "Ausgewählte Slots",
   "checkout.summary": "Bestellübersicht",
@@ -147,7 +133,6 @@
   "checkout.cancel.title": "Zahlung abgebrochen",
   "checkout.cancel.message": "Ihre Zahlung wurde abgebrochen. Ihre Slots sind noch für eine begrenzte Zeit reserviert.",
   "checkout.cancel.retry": "Erneut versuchen",
-
   "admin.title": "Admin-Dashboard",
   "admin.nav.overview": "Übersicht",
   "admin.nav.slots": "Slots",
@@ -164,20 +149,17 @@
   "admin.moderation.approve": "Genehmigen",
   "admin.moderation.reject": "Ablehnen",
   "admin.moderation.flag": "Zur Überprüfung markieren",
-
   "footer.about": "Über uns",
   "footer.faq": "FAQ",
   "footer.terms": "AGB",
   "footer.privacy": "Datenschutz",
   "footer.contact": "Kontakt",
   "footer.rights": "Alle Rechte vorbehalten.",
-
   "about.title": "Über LinkSphere",
   "about.mission.title": "Unsere Mission",
   "about.mission.text": "LinkSphere ist eine digitale Sichtbarkeitsplattform, die Einzelpersonen und Unternehmen ermöglicht, ihren Platz im digitalen Universum einzunehmen. Wir bauen ein permanentes, globales digitales Monument, auf dem Ihre Präsenz für immer besteht.",
   "about.howItWorks.title": "Wie es funktioniert",
   "about.howItWorks.text": "Wählen Sie aus 1.000.000 Slots auf unserer 3D-Sphäre. Jeder Slot repräsentiert eine permanente digitale Platzierung, die Sie mit Ihrem Branding, Links und Ihrer Nachricht anpassen können.",
-
   "faq.title": "Häufig gestellte Fragen",
   "faq.whatIsSlot.q": "Was ist ein Slot?",
   "faq.whatIsSlot.a": "Ein Slot ist ein permanenter digitaler Raum auf unserer 3D-Sphäre. Jeder Slot kann mit Ihrem Logo, Titel, Beschreibung und einem Link zu Ihrer Website oder Ihrem Projekt angepasst werden.",
@@ -189,21 +171,17 @@
   "faq.refund.a": "Aufgrund der permanenten Natur des Slot-Besitzes sind Rückerstattungen nach dem Kauf nicht möglich.",
   "faq.payment.q": "Welche Zahlungsmethoden akzeptieren Sie?",
   "faq.payment.a": "Wir akzeptieren alle großen Kreditkarten über Stripe. PayPal und Krypto-Zahlungen können in Zukunft hinzugefügt werden.",
-
   "terms.title": "Allgemeine Geschäftsbedingungen",
   "privacy.title": "Datenschutzerklärung",
   "contact.title": "Kontakt",
-
   "error.404.title": "Seite nicht gefunden",
   "error.404.message": "Die gesuchte Seite existiert nicht.",
   "error.500.title": "Etwas ist schiefgelaufen",
   "error.500.message": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
   "error.backHome": "Zurück zur Startseite",
-
   "loading": "Laden...",
   "loading.more": "Mehr laden",
   "loading.please": "Bitte warten...",
-
   "button.save": "Speichern",
   "button.cancel": "Abbrechen",
   "button.delete": "Löschen",
@@ -216,21 +194,47 @@
   "button.search": "Suchen",
   "button.clear": "Löschen",
   "button.reset": "Zurücksetzen",
-
   "form.required": "Dieses Feld ist erforderlich",
   "form.invalid.email": "Bitte geben Sie eine gültige E-Mail ein",
   "form.invalid.url": "Bitte geben Sie eine gültige URL ein",
   "form.minLength": "Mindestens {min} Zeichen erforderlich",
   "form.maxLength": "Maximal {max} Zeichen erlaubt",
-
   "toast.success": "Erfolg",
   "toast.error": "Fehler",
   "toast.saved": "Änderungen erfolgreich gespeichert",
   "toast.failed": "Vorgang fehlgeschlagen. Bitte versuchen Sie es erneut.",
-
   "meta.title.default": "LinkSphere - Erobern Sie Ihren Platz im digitalen Universum",
   "meta.title.template": "{title} | LinkSphere",
   "meta.description.default": "LinkSphere ist eine digitale Sichtbarkeitsplattform, auf der Sie Ihren Platz im digitalen Universum einnehmen können. Kaufen Sie gesponserte Slots auf unserer interaktiven 3D-Sphäre.",
   "meta.og.title": "LinkSphere - Digitale Universum Plattform",
-  "meta.og.description": "Erobern Sie Ihren permanenten Platz im digitalen Universum. Werden Sie Teil von Tausenden von Marken auf unserer 3D-Plattform."
+  "meta.og.description": "Erobern Sie Ihren permanenten Platz im digitalen Universum. Werden Sie Teil von Tausenden von Marken auf unserer 3D-Plattform.",
+  "nav.pricing": "Preise",
+  "footer.explore": "Entdecken",
+  "footer.explorer3d": "3D-Explorer",
+  "footer.searchSlots": "Slots suchen",
+  "footer.featured": "Highlights",
+  "footer.legal": "Rechtliches",
+  "footer.cookies": "Cookie-Richtlinie",
+  "auth.google.continue": "Mit Google fortfahren",
+  "auth.or": "oder",
+  "auth.placeholder.email": "du@beispiel.com",
+  "auth.placeholder.name": "Dein Name",
+  "auth.register.passwordMismatch": "Passwoerter stimmen nicht ueberein",
+  "auth.password.min": "{min}+ Zeichen",
+  "auth.register.legalPrefix": "Mit der Kontoerstellung stimmst du",
+  "auth.register.legalAnd": "und",
+  "dashboard.purchases.invoiceNote": "Rechnungen werden nach jedem Kauf automatisch per E-Mail versendet. In deinem Postfach findest du deine Stripe-Rechnungen.",
+  "dashboard.settings.name": "Name",
+  "dashboard.slots.owned": "Slots im Besitz",
+  "settings.save.error": "Profil konnte nicht gespeichert werden.",
+  "settings.save.retry": "Bitte versuche es erneut.",
+  "pricing.from": "Ab",
+  "category.technology": "Technologie",
+  "category.ecommerce": "E-Commerce",
+  "category.business": "Business",
+  "category.creative": "Kreativ",
+  "category.gaming": "Gaming",
+  "category.education": "Bildung",
+  "category.health": "Gesundheit",
+  "category.travel": "Reisen"
 }

@@ -8,7 +8,8 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
-import { SITE_NAME, SITE_TAGLINE, TOTAL_SLOTS } from '@/lib/constants'
+import { TOTAL_SLOTS } from '@/lib/constants'
+import { useTranslation } from '@/i18n/provider'
 
 // Format number with consistent locale (en-US) to avoid hydration mismatch
 function formatNumber(num: number): string {
@@ -24,6 +25,8 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ stats }: HeroSectionProps) {
+  const { t } = useTranslation()
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background effects */}
@@ -43,35 +46,31 @@ export function HeroSection({ stats }: HeroSectionProps) {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-white/70">1,000,000 slots available</span>
+            <span className="text-sm text-white/70">{formatNumber(TOTAL_SLOTS)} {t('home.counters.available').toLowerCase()}</span>
           </div>
 
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Own Your Place in the
-            <span className="block bg-gradient-to-r from-primary via-primary/80 to-primary/50 bg-clip-text text-transparent">
-              Digital Universe
-            </span>
+            {t('home.hero.title')}
           </h1>
 
           {/* Subtitle */}
           <p className="max-w-2xl mx-auto text-lg sm:text-xl text-white/60 mb-8">
-            {SITE_TAGLINE}. Join thousands of brands and creators who have secured 
-            their permanent spot on the world&apos;s most innovative digital visibility platform.
+            {t('home.hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button size="lg" className="gap-2 px-8" asChild>
               <Link href="/explore">
-                Explore the Sphere
+                {t('home.hero.cta.explore')}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="gap-2 px-8 border-white/20 text-white hover:bg-white/10" asChild>
               <Link href="/#how-it-works">
                 <Play className="w-4 h-4" />
-                How It Works
+                {t('about.howItWorks.title')}
               </Link>
             </Button>
           </div>
@@ -83,19 +82,19 @@ export function HeroSection({ stats }: HeroSectionProps) {
                 <div className="text-3xl sm:text-4xl font-bold text-white mb-1">
                   {formatNumber(stats.totalSlots)}
                 </div>
-                <div className="text-sm text-white/50">Total Slots</div>
+                <div className="text-sm text-white/50">{t('home.counters.slots')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1">
                   {formatNumber(stats.availableSlots)}
                 </div>
-                <div className="text-sm text-white/50">Available</div>
+                <div className="text-sm text-white/50">{t('home.counters.available')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-blue-400 mb-1">
                   {formatNumber(stats.soldSlots)}
                 </div>
-                <div className="text-sm text-white/50">Claimed</div>
+                <div className="text-sm text-white/50">{t('home.counters.sold')}</div>
               </div>
             </div>
           )}

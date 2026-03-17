@@ -7,6 +7,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { TOTAL_SLOTS } from '@/lib/constants'
+import { useTranslation } from '@/i18n/provider'
 
 // Format number with consistent locale (en-US) to avoid hydration mismatch
 function formatNumber(num: number): string {
@@ -22,6 +23,7 @@ interface StatsCounterProps {
 }
 
 export function StatsCounter({ initialStats }: StatsCounterProps) {
+  const { t } = useTranslation()
   const stats = initialStats || {
     availableSlots: TOTAL_SLOTS,
     soldSlots: 0,
@@ -78,28 +80,28 @@ export function StatsCounter({ initialStats }: StatsCounterProps) {
             <div className="text-4xl md:text-5xl font-bold text-white mb-2">
               {formatNumber(TOTAL_SLOTS)}
             </div>
-            <div className="text-white/50 text-sm">Total Slots</div>
+            <div className="text-white/50 text-sm">{t('home.counters.slots')}</div>
           </div>
           
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">
               {formatNumber(displayStats.available)}
             </div>
-            <div className="text-white/50 text-sm">Available</div>
+            <div className="text-white/50 text-sm">{t('home.counters.available')}</div>
           </div>
           
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
               {formatNumber(displayStats.sold)}
             </div>
-            <div className="text-white/50 text-sm">Claimed</div>
+            <div className="text-white/50 text-sm">{t('home.counters.sold')}</div>
           </div>
           
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">
               {formatNumber(displayStats.reserved)}
             </div>
-            <div className="text-white/50 text-sm">Reserved</div>
+            <div className="text-white/50 text-sm">{t('home.counters.reserved')}</div>
           </div>
         </div>
       </div>

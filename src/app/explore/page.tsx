@@ -19,16 +19,11 @@ import { Card, CardContent } from '@/components/ui/card'
 import { 
   Globe, 
   Info, 
-  Sparkles, 
   ChevronLeft,
-  ChevronRight,
-  ZoomIn,
-  ZoomOut,
-  RotateCcw,
   Menu,
-  X
 } from 'lucide-react'
 import { TOTAL_SLOTS, BASE_SLOT_PRICE_EUR } from '@/lib/constants'
+import { useTranslation } from '@/i18n/provider'
 
 // Dynamic import for 3D component (no SSR)
 const Sphere3D = dynamic(
@@ -39,7 +34,7 @@ const Sphere3D = dynamic(
       <div className="w-full h-full flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-white/60">Chargement de la sphère...</p>
+          <p className="text-white/60">Loading sphere...</p>
         </div>
       </div>
     )
@@ -53,14 +48,16 @@ function formatNumber(num: number): string {
 
 // Loading fallback
 function ExploreLoading() {
+  const { t } = useTranslation()
+
   return (
     <main className="min-h-screen flex flex-col bg-black">
       <Header />
       <div className="flex-1 flex items-center justify-center pt-16">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-white mb-2">Chargement de l'explorateur...</h2>
-          <p className="text-white/60">Préparation de la sphère 3D</p>
+          <h2 className="text-xl font-bold text-white mb-2">{t('loading')}</h2>
+          <p className="text-white/60">{t('explore.subtitle')}</p>
         </div>
       </div>
       <Footer />
@@ -70,6 +67,7 @@ function ExploreLoading() {
 
 // Explore content
 function ExploreContent() {
+  const { t } = useTranslation()
   const router = useRouter()
   const searchParams = useSearchParams()
   const initialSlot = searchParams.get('slot')
@@ -154,7 +152,7 @@ function ExploreContent() {
                         LinkSphere
                       </h1>
                       <p className="text-white/50 text-sm">
-                        Explorez {formatNumber(TOTAL_SLOTS)} slots
+                        {t('nav.explore')} {formatNumber(TOTAL_SLOTS)} {t('home.counters.slots').toLowerCase()}
                       </p>
                     </div>
                     <Button
@@ -177,11 +175,12 @@ function ExploreContent() {
                   <div className="grid grid-cols-2 gap-2">
                     <div className="p-3 rounded-lg bg-white/5 text-center">
                       <div className="text-lg font-bold text-primary">{formatNumber(TOTAL_SLOTS)}</div>
-                      <div className="text-xs text-white/50">Total Slots</div>
+                      <div className="text-xs text-white/50">{t('home.counters.slots')}</div>
+                      
                     </div>
                     <div className="p-3 rounded-lg bg-white/5 text-center">
                       <div className="text-lg font-bold text-green-400">{formatNumber(TOTAL_SLOTS)}</div>
-                      <div className="text-xs text-white/50">Disponibles</div>
+                      <div className="text-xs text-white/50">{t('home.counters.available')}</div>
                     </div>
                   </div>
                   
@@ -190,7 +189,7 @@ function ExploreContent() {
                     <div className="flex items-start gap-2">
                       <Info className="w-4 h-4 text-primary mt-0.5" />
                       <p className="text-xs text-white/70">
-                        Cliquez sur un point de la sphère ou utilisez la recherche pour sélectionner un slot. Chaque slot coûte €{BASE_SLOT_PRICE_EUR} à vie.
+                        {t('explore.subtitle')} - €{BASE_SLOT_PRICE_EUR}
                       </p>
                     </div>
                   </div>
@@ -202,13 +201,13 @@ function ExploreContent() {
                       className="flex-1 border-white/10 text-white"
                       onClick={() => router.push('/pricing')}
                     >
-                      Tarifs
+                      {t('nav.pricing')}
                     </Button>
                     <Button 
                       className="flex-1"
                       onClick={() => router.push('/auth/register')}
                     >
-                      Commencer
+                      {t('nav.register')}
                     </Button>
                   </div>
                 </CardContent>
@@ -240,10 +239,10 @@ function ExploreContent() {
                   </div>
                   <div>
                     <p className="text-white font-medium">Slot #{formatNumber(selectedSlot)}</p>
-                    <p className="text-white/50 text-xs">Sélectionné</p>
+                    <p className="text-white/50 text-xs">{t('slot.title').replace('{number}', formatNumber(selectedSlot))}</p>
                   </div>
                   <Button size="sm" onClick={() => setShowStorefront(true)}>
-                    Voir
+                    {t('slot.buyNow')}
                   </Button>
                 </CardContent>
               </Card>
@@ -257,16 +256,16 @@ function ExploreContent() {
             <CardContent className="px-4 py-2 flex items-center gap-4">
               <div className="flex items-center gap-2 text-sm">
                 <div className="w-2 h-2 rounded-full bg-green-500" />
-                <span className="text-white/60">Disponible</span>
+                <span className="text-white/60">{t('explore.legend.available')}</span>
               </div>
               <div className="h-4 w-px bg-white/20" />
               <div className="flex items-center gap-2 text-sm">
                 <div className="w-2 h-2 rounded-full bg-amber-500" />
-                <span className="text-white/60">Occupé</span>
+                <span className="text-white/60">{t('explore.legend.sold')}</span>
               </div>
               <div className="h-4 w-px bg-white/20" />
               <div className="text-sm text-white/40">
-                Glissez pour tourner • Cliquez pour sélectionner
+                {t('explore.subtitle')}
               </div>
             </CardContent>
           </Card>

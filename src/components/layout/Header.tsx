@@ -118,7 +118,7 @@ export function Header({
               href="/pricing"
               className="text-white/70 hover:text-white transition-colors text-sm font-medium"
             >
-              Pricing
+              {t('nav.pricing')}
             </Link>
             <Link
               href="/#categories"
@@ -136,7 +136,7 @@ export function Header({
               href="/#faq"
               className="text-white/70 hover:text-white transition-colors text-sm font-medium"
             >
-              FAQ
+              {t('footer.faq')}
             </Link>
           </nav>
 
@@ -161,7 +161,7 @@ export function Header({
                 <DropdownMenuContent align="end" className="bg-black/90 border-white/10 min-w-[200px]">
                   <div className="px-2 py-1.5">
                     <div className="flex items-center gap-2">
-                      <p className="text-sm font-medium text-white">{user.name || 'User'}</p>
+                      <p className="text-sm font-medium text-white">{user.name || t('nav.profile')}</p>
                       {user.badgeInfo && user.badge !== 'NONE' && (
                         <span 
                           className="text-xs px-1.5 py-0.5 rounded-full"
@@ -177,7 +177,7 @@ export function Header({
                     <p className="text-xs text-white/50">{user.email}</p>
                     {user.slotCount !== undefined && user.slotCount > 0 && (
                       <p className="text-xs text-white/40 mt-1">
-                        {user.slotCount} slot{user.slotCount > 1 ? 's' : ''} owned
+                        {user.slotCount} {t('dashboard.slots.owned')}
                       </p>
                     )}
                   </div>

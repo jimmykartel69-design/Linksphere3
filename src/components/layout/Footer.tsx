@@ -86,14 +86,14 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
 
           {/* Explore */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Explore</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.explore')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="#explore"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  3D Explorer
+                  {t('footer.explorer3d')}
                 </Link>
               </li>
               <li>
@@ -101,7 +101,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#categories"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Categories
+                  {t('nav.categories')}
                 </Link>
               </li>
               <li>
@@ -109,7 +109,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#search"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Search Slots
+                  {t('footer.searchSlots')}
                 </Link>
               </li>
               <li>
@@ -117,7 +117,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#featured"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Featured
+                  {t('footer.featured')}
                 </Link>
               </li>
             </ul>
@@ -156,7 +156,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.legal')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -179,7 +179,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
                   href="#cookies"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
-                  Cookie Policy
+                  {t('footer.cookies')}
                 </Link>
               </li>
             </ul>
@@ -199,10 +199,10 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
               value={appLocale || locale}
               onChange={(e) => handleLocaleChange(e.target.value)}
               disabled={isUpdatingLocale}
-              className="bg-transparent text-white/50 text-sm border-none outline-none cursor-pointer"
+              className="bg-transparent text-white/80 text-sm border border-white/15 rounded-md px-2 py-1 outline-none cursor-pointer"
             >
               {SUPPORTED_LOCALES.map((loc) => (
-                <option key={loc} value={loc} className="bg-black">
+                <option key={loc} value={loc} className="bg-white text-black">
                   {LOCALE_NAMES[loc]}
                 </option>
               ))}

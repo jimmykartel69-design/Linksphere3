@@ -14,8 +14,10 @@ import { Separator } from '@/components/ui/separator'
 import { Globe, Loader2, Mail, Lock, ArrowLeft, Check } from 'lucide-react'
 import { SITE_NAME } from '@/lib/constants'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
+import { useTranslation } from '@/i18n/provider'
 
 export default function LoginPage() {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
   const [error, setError] = useState('')
@@ -45,7 +47,7 @@ export default function LoginPage() {
       }
       // The user will be redirected to Google, so we don't need to set loading to false
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur de connexion Google')
+      setError(err instanceof Error ? err.message : t('toast.error'))
       setIsGoogleLoading(false)
     }
   }
@@ -65,7 +67,7 @@ export default function LoginPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Login failed')
+        throw new Error(data.error || t('toast.failed'))
       }
 
       // Show success message
@@ -77,7 +79,7 @@ export default function LoginPage() {
         window.location.replace('/')
       }, 1500)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred')
+      setError(err instanceof Error ? err.message : t('error.500.message'))
       setIsLoading(false)
     }
   }
@@ -90,11 +92,11 @@ export default function LoginPage() {
           <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-green-500" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Connexion réussie!</h1>
-          <p className="text-white/60 mb-4">Bienvenue sur {SITE_NAME}</p>
+          <h1 className="text-2xl font-bold text-white mb-2">{t('toast.success')}</h1>
+          <p className="text-white/60 mb-4">{t('dashboard.welcome').replace('{name}', SITE_NAME)}</p>
           <div className="flex items-center justify-center gap-2 text-white/40">
             <Loader2 className="w-4 h-4 animate-spin" />
-            <span>Redirection en cours...</span>
+            <span>{t('loading.please')}</span>
           </div>
         </div>
       </main>
@@ -111,8 +113,8 @@ export default function LoginPage() {
               <Globe className="w-7 h-7 text-primary-foreground" />
             </div>
           </Link>
-          <h1 className="text-2xl font-bold text-white">Content de vous revoir</h1>
-          <p className="text-white/60 mt-1">Connectez-vous à votre compte {SITE_NAME}</p>
+          <h1 className="text-2xl font-bold text-white">{t('auth.login.title')}</h1>
+          <p className="text-white/60 mt-1">{t('auth.login.subtitle')}</p>
         </div>
 
         <Card className="bg-white/5 border-white/10">
@@ -154,7 +156,7 @@ export default function LoginPage() {
                     />
                   </svg>
                 )}
-                Continuer avec Google
+                {t('auth.google.continue')}
               </Button>
 
               <div className="relative">
@@ -162,29 +164,30 @@ export default function LoginPage() {
                   <Separator className="w-full bg-white/10" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-2 text-white/40">ou</span>
+                  <span className="bg-card px-2 text-white/40">{t('auth.or')}</span>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-white">Email</Label>
+                <Label htmlFor="email" className="text-white">{t('auth.login.email')}</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
                     id="email"
                     type="email"
-                    placeholder="vous@exemple.com"
+                    placeholder={t('auth.placeholder.email')}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"
                     required
                     autoFocus
+                    autoComplete="email"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-white">Mot de passe</Label>
+                <Label htmlFor="password" className="text-white">{t('auth.login.password')}</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
@@ -195,6 +198,7 @@ export default function LoginPage() {
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"
                     required
+                    autoComplete="current-password"
                   />
                 </div>
               </div>
@@ -203,10 +207,10 @@ export default function LoginPage() {
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Connexion...
+                    {t('loading')}
                   </>
                 ) : (
-                  'Se connecter'
+                  t('auth.login.submit')
                 )}
               </Button>
             </CardContent>
@@ -215,9 +219,9 @@ export default function LoginPage() {
           <CardFooter className="flex flex-col gap-4 pt-0">
             <Separator className="bg-white/10" />
             <p className="text-white/60 text-sm text-center">
-              Pas encore de compte?{' '}
+              {t('auth.login.noAccount')}{' '}
               <Link href="/auth/register" className="text-primary hover:underline">
-                Créer un compte
+                {t('auth.login.signUp')}
               </Link>
             </p>
           </CardFooter>
@@ -226,7 +230,7 @@ export default function LoginPage() {
         <div className="mt-6 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm">
             <ArrowLeft className="w-4 h-4" />
-            Retour à l'accueil
+            {t('error.backHome')}
           </Link>
         </div>
       </div>
