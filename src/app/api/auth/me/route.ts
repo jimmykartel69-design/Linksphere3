@@ -27,9 +27,24 @@ export async function GET() {
       .select('*')
       .eq('id', authUser.id)
       .single()
+    
+    // Auto-heal missing profiles in production.
+    let resolvedProfile = profile
+    if (profileError || !profile) {
+      const { data: createdProfile, error: createError } = await supabase
+        .from('profiles')
+        .insert({
+          id: authUser.id,
+          name: authUser.user_metadata?.name || authUser.email?.split('@')[0] || null,
+          avatar_url: authUser.user_metadata?.avatar_url || null,
+          locale: 'en',
+        })
+        .select('*')
+        .single()
 
-    if (profileError) {
-      return NextResponse.json({ error: profileError.message }, { status: 500 })
+      if (!createError && createdProfile) {
+        resolvedProfile = createdProfile
+      }
     }
 
     const { count, error: slotCountError } = await supabase
@@ -56,11 +71,11 @@ export async function GET() {
     const user = {
       id: authUser.id,
       email: authUser.email,
-      name: profile?.name || authUser.user_metadata?.name || authUser.email?.split('@')[0],
-      avatarUrl: profile?.avatar_url || authUser.user_metadata?.avatar_url,
-      role: profile?.role || 'USER',
-      badge: profile?.badge || badge,
-      locale: profile?.locale || 'en',
+      name: resolvedProfile?.name || authUser.user_metadata?.name || authUser.email?.split('@')[0],
+      avatarUrl: resolvedProfile?.avatar_url || authUser.user_metadata?.avatar_url,
+      role: resolvedProfile?.role || 'USER',
+      badge: resolvedProfile?.badge || badge,
+      locale: resolvedProfile?.locale || 'en',
       slotCount,
       badgeInfo: badgeInfo ? {
         name: badgeInfo.name,
