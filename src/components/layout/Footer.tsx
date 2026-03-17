@@ -160,7 +160,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#terms"
+                  href="/rcf"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
                   {t('footer.terms')}
@@ -168,7 +168,7 @@ export function Footer({ locale = 'en', onLocaleChange }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="#privacy"
+                  href="/rc"
                   className="text-white/50 hover:text-white transition-colors text-sm"
                 >
                   {t('footer.privacy')}

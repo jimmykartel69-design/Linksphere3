@@ -274,9 +274,9 @@ export default function RegisterPage() {
 
               <p className="text-xs text-white/40">
                 {t('auth.register.legalPrefix')}{' '}
-                <Link href="/terms" className="text-white/60 hover:text-white">{t('footer.terms')}</Link>
+                <Link href="/rcf" className="text-white/60 hover:text-white">{t('footer.terms')}</Link>
                 {' '} {t('auth.register.legalAnd')} {' '}
-                <Link href="/privacy" className="text-white/60 hover:text-white">{t('footer.privacy')}</Link>.
+                <Link href="/rc" className="text-white/60 hover:text-white">{t('footer.privacy')}</Link>.
               </p>
 
               <Button 
