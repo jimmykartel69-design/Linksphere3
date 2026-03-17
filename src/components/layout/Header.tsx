@@ -303,6 +303,13 @@ export function Header({
                   >
                     Dashboard
                   </Link>
+                  <Link
+                    href="/settings"
+                    className="px-4 py-2 text-white hover:bg-white/10 rounded-lg"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Settings
+                  </Link>
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false)
