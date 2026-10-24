@@ -1,7 +1,7 @@
 name: Build AI Trader APK
 on:
   push:
-    branches: [ai-trader-apk]
+    branches: [ai-trader-apk, ai-trader-v2-dev]
     paths:
       - 'tools/ai-trader-android/**'
       - '.github/workflows/build-ai-trader-apk.yml'
@@ -40,16 +40,17 @@ jobs:
         run: ls -lh app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: AI-Trader-Android-V1
+          name: AI-Trader-Android-V2
           path: tools/ai-trader-android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
-      - name: Publish APK on build branch
+      - name: Publish APK on V2 branch
         working-directory: .
+        if: github.ref_name == 'ai-trader-v2-dev'
         run: |
           mkdir -p dist
-          cp tools/ai-trader-android/app/build/outputs/apk/debug/app-debug.apk dist/AI-Trader-Android-V1.apk
+          cp tools/ai-trader-android/app/build/outputs/apk/debug/app-debug.apk dist/AI-Trader-Android-V2.apk
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist/AI-Trader-Android-V1.apk
-          git commit -m "Build AI Trader Android V1 APK" || exit 0
-          git push origin HEAD:ai-trader-apk
+          git add dist/AI-Trader-Android-V2.apk
+          git commit -m "Build AI Trader Android V2 APK" || exit 0
+          git push origin HEAD:ai-trader-v2-dev
